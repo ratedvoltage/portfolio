@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+    #all {
+        width: 1080px;
+        height: 1920px;
+        margin: 0 auto;
+        position: relative;
+    }
+        /*header start*/
+        #header {
+            font-family: 'OTWelcomeRA';
+            background-color: #C32033;
+            color: white;
+            width: 1080px;
+            margin: 0 auto;
+            height: 30px;
+            font-size : 20px;
+        }
+        #headerA {
+            width: 600px;
+            padding-left:20px;
+        }
+        #headerB {
+            width: 400px;
+        }
+        /*header end*/
+        /*menu head start*/
+        #menu_head {
+            font-family: 'LINESeedKR-Bd';
+            margin: 0 auto;
+            width: 1080px;
+            color: gray;
+            height: 70px;
+            border: 1px solid rgb(240, 240, 240);
+            font-size : 20px;
+        }
+        #header a {
+            color : white;
+        }
+        #menu_head a {
+            color : gray;
+        }
+        #menu_head a:hover {
+            color : black;
+        }
+        /*menu head end*/
+        /*menu start*/
+        .menu {
+            margin: 10px 10px 0px 10px;
+            font-family: 'NanumSquareNeo-Variable';
+            
+        }
+       
+       
+       .menu_name {
+        margin: 0 auto;
+        font-size : 23px;
+        text-align: center;
+       }
+       .menu_price {
+        margin : 0 auto;
+        font-size: 22px;
+        text-align: center;
+       }
+       .itemImg {
+        width: 100%;
+       }
+       .itemSize{
+        height: 300px;
+        width: 210px;
+        color: black;
+        text-decoration: none;
+        margin : 0 auto;
+       }
+       .itemSize a:hover {
+        color: rgb(209, 113, 139);
+       }
+       .itemSize a {
+        color: black;
+       }
+    
+       /* menu end */
+  /* page */
+     #page {
+        width: 78%;
+        height: 100px;
+        margin: 0 auto;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+       }
+    #page a {
+        color: white;
+    }
+
+     #page a:hover {
+        color: black;
+     }
+       #pageSpace1 {
+        width: 100px;
+        text-align: right;
+       }
+       #pageSpace2 {
+        width: 100px;
+        text-align: left;
+       }
+       .prenext{
+        font-family: 'NanumSquareNeo-Variable';
+        background-color: #C32033;
+        border: none;
+        border-radius: 5px;
+        padding:  25px 60px;
+        font-size: 20px;
+       }
+       #pre{
+        margin-right: 100px;
+       }
+       #next {
+        margin-left: 100px;
+        
+       }
+     
+   
+       #curcle {
+        width: 30px;
+       }
+        /* 공통 */
+        a {
+        text-decoration: none;
+       }
+  
+       html, body {
+        height: 100%;
+        margin:0;
+        padding:0;
+       }
+       body {
+        display: flex;
+        flex-direction: column;
+       }
+       #footer-top{
+        flex:1;
+       }
+
+       #space{
+        height: 400px;
+       }
+       #menuTd{
+        width: 85%;
+       }
+      /*===============================================================================*/
+      #contentTable{text-align: center;}
+        table,td,tr {border-collapse: collapse;
+            /* border: 1px solid aquamarine; */
+        }
+
+        #SetpopUpSlideMenu {width: 15%;}
+        #outline {width: 170px;background-color: #C32033;
+            /* 아래 회색부 합치기위한 마진 안남기기 */
+            margin: 8px 8px 0px 8px;}
+        #headerTable {width: 100%;}
+
+        /* 장바구니 옆 숫자(갯수) */
+        #shoppingBasketSideSize {height: 40px;width: 40px;text-align: start;transform: translateY(7.05px);}
+        #shoppingBasketSideTxt {width: 30px;font-size: 20px;border: #C32033;border-radius: 10px;
+            background-color: #9b1424;text-align: center;color: white;}
+
+        /* 장바구니 */
+        #shoppingBasketImg {width: 100%;}
+        #shoppingBasketTxt {font-weight: bold;font-size: 25px;color: white;}
+
+        /* 화살표,전체삭제, 장바구니  */
+        #basketInTable {width: 100%;}
+
+        /* 화살표 */
+        #arrowUpImg {width: 30%;height: 60px;}
+        #arrowDownImg {width: 30%;height: 60px;transform: rotate(180deg);}
+
+        /* 전체삭제 */
+        #deleteAll {width: 100%;padding: 3px;}
+        #deleteAllBtn {width: 90%;height: 70px;border-radius: 10px;font-size: 20px;
+            background-color: #C32033;border: 3px solid white;color: white;font-weight: bold;}
+
+        /* 장바구니 목록 */
+        .shopping {width: 100%;padding: 4.7px;}
+
+        #shoppingBtn {width: 90%;height: 140px;border-radius: 10px;
+            background-color: #9b1424;border: 0px solid rgb(197, 27, 27);color: white;font-weight: bold;}
+        #shoppingImg {opacity: 0.4;width: 40%;}
+        #cupponTable {width: 100%;}
+
+        /* 쿠폰, 스템프  */
+        .cuppon {width: 100%;height: 160px;}
+
+        /* 스템프  */
+        #stempBtn,#cupponBtn {width: 90%;height: 140px;border-radius: 10px;
+            background-color: white;border: 0px solid white;color: white;font-weight: bold;}
+        #btnStempTable,#btnCupponTable {margin: 0 auto;width: 100%;}
+        #cupponImg {width: 60%;}
+        #stempImg {width: 35%;}
+        #cupponTxt,#stempTxt {font-size: 24px;color: #C32033;font-weight: 900;}
+
+        /* 총 결제  */
+        #totalPayTable {width: 100%;height: 120px;margin-top: 30px;}
+        #billTxt {height: 13px;font-weight: 900;font-size: 20px;color: white;}
+        #bill {font-weight: 900;font-size: 25px;color: white;}
+        #billSpace {height: 0px;}
+
+        /* 결제 버튼 위치 */
+        #payTable {background-color: #786E6C;width: 170px;height: 170px;margin: 0px 8px 8px 8px;}
+        #payBtnSet {width: 100%;height: 100%;}
+        #payBtn {background-color: #786E6C;border-color: #786E6C;width: 100%;height: 100%;border: 0px solid;}
+        #btnPayTable {margin: 0 auto;}
+        #payImgSet {width: 100%;}
+        #payImg {opacity: 20%;width: 40%;}
+        #payTxt {font-size: 30px;color: #ffffff;}
+
+
+    </style>
+</head>
+<body>
+    <div id="all">
+    <!-- head -->
+        <table id="header">
+            <tr>
+                <td id="headerA">주문하시려면 메뉴를 클릭해 주세요.</td>
+                <td id="headerHome">
+                    <img src="img/season_menu/house1.png">
+                </td>
+                <td id="headerB"><a href="1.home.html">시작화면</a></td>
+            </tr>
+        </table>
+        <table id="menu_head">
+            <tr>
+                <th><a href="2.season_menu.html">시즌 메뉴</a></th>
+               <th><a href="3.best_menu.html">베스트 메뉴</a></th>
+               <th><a href="4.milktea.html">밀크티</a></th>
+               <th><a href="5.original.html">오리지널</a></th>
+            </tr>
+        </table>
+    <!-- content -->
+    <table id="contentTable">
+        <tr>
+            <td id = "menuTd">
+    <table class="menu">
+        <tr>
+            <td class="itemSize" onclick="submenu()"><a href="#">
+                <img class="itemImg" src="img/best_menu/best_menu1.png">
+                <div class="menu_name">피스타치오 밀크티+펄</div>
+                <div class="menu_price">
+                    <img src="img/won.png" width="15px">3,900원</div>
+                </a></td>
+            <td class="itemSize" onclick="submenu()"><a href="#">
+                <img class="itemImg" src="img/best_menu/best_menu2.png">
+                <div class="menu_name">타로 밀크티+펄</div>
+                <div class="menu_price">
+                    <img src="img/won.png" width="15px">3,500원</div>
+                </a></td>
+            <td class="itemSize" onclick="submenu()"><a href="#">
+                <img class="itemImg" src="img/best_menu/best_menu3.png">
+                <div class="menu_name">블랙 밀크티+펄</div>
+                <div class="menu_price">
+                    <img src="img/won.png" width="15px">3,600원</div>
+                </a></td>
+            <td class="itemSize" onclick="submenu()"><a href="#">
+                <img class="itemImg" src="img/best_menu/best_menu4.png">
+                <div class="menu_name">청포토 그린티+알로에</div>
+                <div class="menu_price">
+                    <img src="img/won.png" width="15px">4,100원</div>
+                </a></td>
+      </tr>
+    </table>
+    <table class="menu">
+        <tr>
+            <td class="itemSize" onclick="submenu()"><a href="#">
+                <img class="itemImg" src="img/best_menu/best_menu5.png">
+                <div class="menu_name">망고 요구르트+화이트 펄</div>
+                <div class="menu_price">
+                    <img src="img/won.png" width="15px">4,200원</div>
+                </a></td>
+            <td class="itemSize" onclick="submenu()"><a href="#">
+                <img class="itemImg" src="img/best_menu/best_menu6.png">
+                <div class="menu_name">제주 그린 밀크티+펄</div>
+                <div class="menu_price">
+                    <img src="img/won.png" width="15px">4,300원</div>
+                </a></td>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+            
+                  </tr>
+                </table>
+                <table class="menu">
+                    <tr>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                  </tr>
+                </table>                
+                <table class="menu">
+                    <tr>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                  </tr>
+                </table>                
+                <table class="menu">
+                    <tr>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                            <td class="itemSize"></td>
+                  </tr>
+                </table>
+                <table id ="space">
+
+                </table>
+
+            </td>
+            <td id = "SetpopUpSlideMenu">
+                <!--------------------------------------------------------------------->
+                
+    <table id="outline">
+        <tr>
+            <td>
+                <table id="headerTable">
+                    <tr>
+                        <td id="shoppingBasketSideSize"></td>
+                        <td></td>
+                        <td id="shoppingBasketSideSize">
+                            <input type="text" id="shoppingBasketSideTxt" value="00">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="shoppingBasket">
+                            <img id="shoppingBasketImg" src="img/cart.svg">
+                        </td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td id="shoppingBasketTxt" colspan="3">장바구니</td>
+                    </tr>
+                </table>
+                <table id="basketInTable">
+                    <!-- 위쪽 화살표 -->
+                    <tr>
+                        <td class="arrow">
+                            <img id="arrowUpImg" src="img/arrowShop.svg">
+                        </td>
+                    </tr>
+                    <!-- 전채 삭제 -->
+                    <tr>
+                        <td id="deleteAll">
+                            <button id="deleteAllBtn">전체삭제</button>
+                        </td>
+                    </tr>
+                    <!-- 고른 메뉴 표 -->
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- 아래쪽 화살표 -->
+                    <tr>
+                        <td>
+                            <img id="arrowDownImg" src="img/arrowShop.svg">
+                        </td>
+                    </tr>
+
+                </table>
+                <table id="cupponTable">
+
+                    <!-- 스탬프 -->
+                    <tr>
+                        <td class="cuppon">
+                            <button id="stempBtn">
+                                <table id="btnStempTable">
+                                    <tr>
+                                        <td>
+                                            <img id="stempImg" src="img/stemp.png">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td id="stempTxt">
+                                            스템프 사용
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </td>
+                    </tr>
+
+
+                    <!-- 메뉴 교환권 -->
+                    <tr>
+                        <td class="cuppon">
+                            <button id="cupponBtn">
+                                <table id="btnCupponTable">
+                                    <tr>
+                                        <td>
+                                            <img id="cupponImg" src="img/COUPON.svg">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td id="cupponTxt">
+                                            메뉴 교환권
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <table id="totalPayTable">
+                    <tr>
+                        <td id="billTxt">총 결제금액</td>
+                    </tr>
+                    <tr>
+                        <td id="bill">0원</td>
+                    </tr>
+                    <tr>
+                        <td id="billSpace"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    
+    <table id="payTable">
+        <tr>
+            <td id="payBtnSet">
+                <button id="payBtn"type="button" onclick="location.href='popUpPayMent01.html'" >
+                    <table id="btnPayTable">
+                        <tr>
+                            <td id="payImgSet">
+                                <img id="payImg" src="img/pay.svg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="payTxt">결제하기</td>
+                        </tr>
+                    </table>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+
+            </td>
+        </tr>
+    </table>
+       
+
+
+    <!-- cart -->
+    <div id="footer-top"></div>
+
+    <table id="page">
+        <tr>
+            <td>
+                <span id="pre" class="prenext"><a href="#">이전</a></span>
+            </td>
+            <td id="pageSpace1">
+                <svg id="curcle" width="50" height="50">
+                    <circle cx="10" cy="10" r="9" fill="#C32033" stroke="none"/>
+                </svg> 
+            </td>
+            <td id="pageSpace2">
+                <svg id="curcle" width="50" height="50">
+                    <circle cx="10" cy="10" r="9" fill="white" stroke="#C32033" stroke-width="1"/>
+                </svg>
+            </td>
+            <td>
+                <span id="next" class="prenext"><a href="#">다음</a></span>
+            </td>
+        </tr>
+    </table>
+</div>
+    <script>
+        function submenu(){
+           location.href="popUpSubMenu_Setting.html";
+        }
+    </script>
+
+<script>
+    let num = 50;
+    let speed = 3;
+    let switcher = true;        
+    let opt = document.getElementById('payImg');
+    let opt2= document.getElementById('payTxt');
+    
+
+    function breath(){
+        
+                if(num>=90){ 
+                switcher=true
+            }
+            else if (num<=10 ){
+                switcher=false;
+            }
+            if(switcher){
+                num = num - speed;
+            }else{
+                num = num + speed;
+            }
+        opt.style.opacity = `${num/100}`;
+        opt2.style.opacity = `${num/100}`;
+
+            console.log(num/100);
+    }
+    let auto = setInterval(breath,100)
+    
+
+</script>
+</body>
+</html>

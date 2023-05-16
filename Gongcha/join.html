@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @font-face {
+            font-family: 'LINESeedKR-Bd';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'OTWelcomeRA';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NanumSquareNeo-Variable';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+            /* 전채 */
+        #all {width: 1080px;height: 1920px;margin: 0 auto;}
+
+            /* 해더 */
+        #header {margin: 0 auto;}
+        #headerMenu {height: 120px;background-color: #C32033;width: 1080px;
+            text-align: center;font-family: 'OTWelcomeRA';color: white;font-size: 40px;}
+        #logoSpace {text-align: center;padding: 60px;}
+        #logo {width: 250px;text-align: center;}
+        #jonInfo {text-align: center;font-family: 'OTWelcomeRA';font-size: 28px;
+            font-weight: bold;color: grey;padding: 50px;}
+
+            /* 조인 컨탠츠 */
+        #content-joinTable {margin: 0 auto;}
+
+            /* 전채조정 */
+        .joinMenu {width: 150px;text-align: left;font-family: 'OTWelcomeRA';padding: 30px;
+            font-size: 20px;height: 50px;}
+        .joinInput {width: 400px;font-size: 20px;font-family: 'OTWelcomeRA';}
+        .inputText {width: 380px;height: 50px;color: rgb(67, 61, 61);
+            border: 1px solid gainsboro;font-family: 'OTWelcomeRA';
+            font-size: 18px;padding: 3px;padding-left: 10px;}
+                /* 중복 버튼 */
+            .btnSpace {width: 250px;text-align: left;padding-left: 30px;font-size: 13px;
+                color: rgb(113, 113, 113);}
+            .checkBtn {width: 150px;height: 40px;font-family: 'OTWelcomeRA';padding: 5px;color: white;
+                background-color: #C32033;border: none;font-size: 18px;cursor: pointer;}
+
+            /* 부분 조정 */
+        #emailInfo {width: 250px;text-align: left;padding-left: 30px;font-size: 13px;
+            color: rgb(113, 113, 113);}
+        #submitDb {margin: 0 auto;padding: 50px;height: 150px;}
+        .joinLast {height: 60px;width: 300px;color: black;background-color: white;border: 1px solid #C32033;
+            border-radius: 5px;font-family: 'OTWelcomeRA';font-size: 28px;text-align: center;padding: 5;
+            cursor: pointer;}
+
+        table,tr,td,div {border-collapse: collapse;
+            border: 1px solid aqua;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 가장 바깥쪽 아웃라인-->
+    <div id="all">
+
+        <!-- 해더  -->
+        <table id="header">
+            <tr>
+                <td id="headerMenu">회 원 가 입</td>
+            </tr>
+            <tr>
+                <td id="logoSpace"><img id="logo" src="img/logo.jpg"></td>
+            </tr>
+            <tr>
+                <td id="jonInfo">
+                    아래의 항목을 모두 입력해주시기 바랍니다.
+                    <br>회원 가입은 무료이며, 가입 즉시 서비스를 이용할 수 있습니다.
+                </td>
+            </tr>
+        </table>
+
+        <table id="content-joinTable">
+            <!-- 아이디 -->
+            <tr>
+                <td class="joinMenu" rowspan="2">아이디</td>
+                <td class="joinInput">
+                    <input class="inputText" id="input-memberId" type="text" placeholder="아이디를 입력하세요." onkeyup="changeColor()">
+                </td>
+                <td class="btnSpace">
+                    <button class="checkBtn" id="button-memberIdCheckPro">중복 확인</button>
+                </td>
+            </tr>
+            <tr>
+                <td id="msg-memberId" colspan="2"></td>
+            </tr>
+
+            <!-- 비밀번호 -->
+            <tr>
+                <td class="joinMenu" rowspan="2">비밀번호</td>
+                <td class="joinInput" colspan="2">
+                    <input class="inputText" type="text" id="input-memberPw" placeholder="비밀번호를 입력하세요" onkeyup="changeColor()"
+                        onblur="checkPw()">
+                </td>
+            </tr>
+            <tr>
+                <td id="msg-memberPw" colspan="2"></td>
+            </tr>
+
+            <!-- 비밀번호 확인  -->
+            <tr>
+                <td class="joinMenu" rowspan="2">비밀번호 확인</td>
+                <td class="joinInput" colspan="2">
+                    <input class="inputText" type="text" id="input-memberPwRe" placeholder="비밀번호를 다시 입력하세요." onkeyup="changeColor()"
+                        onblur="checkTotalPw()">
+                </td>
+            </tr>
+            <tr>
+                <td id="msg-memberPwRe" colspan="2"></td>
+            </tr>
+
+            <!-- 이름  -->
+            <tr>
+                <td class="joinMenu" rowspan="2">이름</td>
+                <td class="joinInput" colspan="2"><input class="inputText" type="text" id="input-memberName"onkeyup="changeColor()"></td>
+            </tr>
+            <tr>
+                <td id="msg-memberName" colspan="2"></td>
+            </tr>
+
+            <!-- 성별 -->
+            <tr>
+                <td class="joinMenu" >성별</td>
+                <td class="joinInput" colspan="2">
+                    <label><input type="radio" class="radio-memberGender" name="gender" value="1">남성</label>
+                    <label><input type="radio" class="radio-memberGender" name="gender" value="2">여성</label>
+                    <label><input type="radio" class="radio-memberGender" name="gender" value="0" checked>선택안함</label>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="joinMenu">생년월일</td>
+                <td colspan="2"><input class="inputText" id="input-memberBirth" type="date"></td>
+            </tr>
+
+            <tr>
+                <td class="joinMenu" rowspan="2">핸드폰 번호</td>
+                <td class="joinInput" colspan="2"><input class="inputText" id="input-memberPhone" type="tel" placeholder="01*-***-****" onkeyup="changeColor()"></td>
+            </tr>
+            <tr>
+                <td id="msg-memberPhone" colspan="2"></td>
+            </tr>
+            <tr>
+                <td class="joinMenu" rowspan="2">이메일</td>
+                <td class="joinInput" colspan="2"><input class="inputText" id="input-memberEmail" type="email" placeholder="이메일을 입력하세요" onkeyup="changeColor()" onblur=""></td>
+            </tr>
+            <tr>
+                <td id="msg-memberEmail" colspan="2"></td>
+            </tr>
+
+            <tr>
+                <td rowspan="2">이용약관 동의</td>
+                <td colspan="2">
+                    <label> <input id="check-memberAllTerms" type="checkbox">전체 동의</label>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <label><input class="check-memberTerms" type="checkbox" value="1">이용약관 동의 (필수) <br></label>
+                    <label><input class="check-memberTerms" type="checkbox" value="2">개인정보취급 동의 (필수) <br></label>
+                    <label><input class="check-memberTerms" type="checkbox" value="3">만 14세 이상입니다. 동의 (필수) <br></label>
+                    <label><input class="check-memberTerms" type="checkbox" value="0">마케팅 메일 수신 동의 (선택) <br></label>
+                </td>
+            </tr>
+        </table>
+        <table id="submitDb">
+            <tr>
+                <td>
+                    <button class="joinLast" onclick="before()">이전</button>
+                </td>
+                <td>
+                    <button class="joinLast" id="button-memberJoinPro" onclick="nextPage()">가입하기</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <script>
+
+        let idCheck = false;
+        let emailCheck = false;
+
+        //아이디 기입시
+        let $inputMemberId = document.querySelector("#input-memberId");
+        $inputMemberId.addEventListener("input", inputMemberIdInput);
+        //중복채크 버튼 클릭시
+        //buttonMemberIdCheckPro(button=버튼,memberId=멤버Id,Check=확인,Pro=프로세스[데이터 확인])
+        //버튼의 종류 3형태(page넘기기(Page),event실행(Event),Process확인이나데이터형처리(Pro))
+        let $buttonMemberIdCheckPro = document.querySelector("#button-memberIdCheckPro");
+        $buttonMemberIdCheckPro.addEventListener("click", buttonMemberIdCheckProClick);
+
+        //패스워드 기입시
+        let $inputMemberPw = document.querySelector("#input-memberPw");
+        $inputMemberPw.addEventListener("input", inputMemberPwInput);
+        //패스워드 재확인 기입시
+        let $inputMemberPwRe = document.querySelector("#input-memberPwRe");
+        $inputMemberPwRe.addEventListener("input", inputMemberPwReInput);
+
+        //멤버 이름 기입시
+        let $inputMemberName = document.querySelector("#input-memberName");
+        $inputMemberName.addEventListener("input", inputMemberNameInput);
+
+        //멤버 이메일 기입시
+        let $inputMemberEmail = document.querySelector("#input-memberEmail");
+        $inputMemberEmail.addEventListener("input", inputMemberEmailInput);
+        //멤버 이메일 중복확인 버튼 클릭시
+        let $buttonMemberEmailCheckPro = document.querySelector("#button-memberEmailCheckPro");
+        $buttonMemberEmailCheckPro.addEventListener("click", buttonMemberEmailCheckProClick);
+
+        //멤버 핸드폰 기입시
+        let $inputMemberPhone = document.querySelector("#input-memberPhone");
+        $inputMemberPhone.addEventListener("input", inputMemberPhoneInput);
+
+        // let $inputMemberZonecode = document.querySelector("#input-memberZonecode");
+        // let $inputMemberAddress = document.querySelector("#input-memberAddress");
+        // let $inputMemberAddressDetail = document.querySelector("#input-memberAddressDetail");
+
+        //멤버 성별 벨류값 불러오기용 선언
+        let $inputMemberGender = document.querySelector("#input-memberGender");
+
+        //멤버가 약관동의 전체 채크용
+        let $checkMemberAllTerms = document.querySelector("#check-memberAllTerms");
+        $checkMemberAllTerms.addEventListener("click", checkMemberAllTermsClick);
+
+        //멤버가 약관동의 하나씩 채크용
+        let $checkMemberTerms = document.querySelectorAll(".check-memberTerms");
+        for(let i=0; i<$checkMemberTerms.length; i++) {
+            $checkMemberTerms[i].addEventListener("click", checkMemberTermsClick);
+        }
+
+        //멤버 회원가입 버튼 클릭시
+        let $btnMemberJoinPro = document.querySelector("#button-memberJoinPro");
+        $btnMemberJoinPro.addEventListener("click", buttonMemberJoinProClick);
+
+        // 아이디 유효성 검사 [유효하지않을 시 글자 띄우기용]
+        function inputMemberIdInput() {
+            let $msgMemberId = document.querySelector('#msg-MemberId');
+
+            let regExp = RegExp(/^[A-Za-z0-9_\-]{6,16}$/);
+            if(regExp.test($inputMemberId.value)){
+                $msgMemberId.innerHTML = "";    //값이 맞으면 조용히 있어
+            }else{                              //값이 틀리면 빨갛게 짖어라!
+                $msgMemberId.innerHTML = "<span style='color:#F03F40; font-size:12px;'>6자 이상 16자 이하의 영문 혹은 영문과 숫자를 조합</span>";
+            }
+
+        }
+
+        /* 아이디 중복검사 */
+        function buttonMemberIdCheckProClick(){
+            let regExp = RegExp(/^[A-Za-z0-9_\-]{6,16}$/);
+
+            if($inputMemverId.value ==""){//왜 값을 안넣고 누르시나요?
+                alert("아이디를 입력해 주세요.");
+                $inputMemverId.focus();     //커서를 입력창으로 옮기는거 같음.
+            }else if (!regExp.test($inputMemverId.value)) {//왜 조건과 틀리게 적나요?
+                alert("6자 이상 16자 이하의 영문 혹은 영문과 숫자를 조합");
+                $inputMemverId.value = "";  //값을 초기화시키고
+                $inputMemverId.focus();     //커서를 입력창으로
+            } else {
+                idCheck = true;
+            }
+        }
+    </script>
+</body>
+
+</html>

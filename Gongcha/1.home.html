@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+     #all {
+        width: 1080px;
+        height: 1920px;
+        margin:0 auto;
+        position: relative;
+     }
+
+        /*menu head end*/
+        /* content */
+        #mainPicture{
+            margin: 0 auto;
+            text-align: center;
+            width: 1080px;
+            height: 1800PX;
+            margin-top: 0;
+            cursor: pointer;
+        }
+
+       #footer {
+        width: 1080px;
+        height: 120px;
+        text-align: center;
+        margin: 0 auto;
+        background-color: #cf3143;
+       }
+       #keyA {
+        width: 500px;
+        height: 140px;
+        text-align: right;
+
+       }
+       #keyimg {
+        width: 70px;
+        text-align: center;
+       }
+       #keyB{
+        font-size: 35px;
+        text-align: left;
+        padding-left: 10px;
+        color: white;
+        cursor: pointer;
+       }
+
+    </style>
+</head>
+<body>
+    <div id="all">
+
+    <!-- content -->
+    <table class="content" onclick="menuSelect()">
+        <tr>
+            <td>
+                <img id="mainPicture" src="img/home/main.gif">
+            </td>
+        </tr>
+
+     </table>
+
+     <table id="footer" onclick="login()">
+
+        </tr>
+        <tr>
+            <td id="keyA">
+                <img id="keyimg" src="img/key.svg">
+            </td>
+            <td id="keyB">
+                login
+            </td>
+        </tr>
+     </talbe>
+    </div>
+    <script>
+        function menuSelect(){
+            location.href="2.season_menu.html";
+        }
+        function login(){
+            location.href="login.html";
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outLine{
+            width: 1080px;
+            height: 1920px;
+
+            margin: 0 auto;
+            text-align: center;
+        }
+        #top-header {
+            
+        }
+
+        
+        #LcountTable,
+        #RcountTable,
+        #LticketCountTable,
+        #RticketCountTable,
+        #receiptTable
+        {
+            display: inline-table;
+        }
+        #LticketCountTable,#RticketCountTable{
+            width: 440px;
+        }
+        #receiptTable span{
+            display: inline-table;
+            width: 200px;
+            line-height: 30px;
+        }
+        #LticketCountTable span,#RticketCountTable span{
+            display: inline-table;
+            width: 130px;
+            line-height: 30px;
+        }
+        #LcountTable span,#RcountTable span{
+            display: inline-table;
+            width: 80px;
+            line-height: 30px;
+        }
+
+        #statusTable span:nth-child(1) {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        #statusTable ,
+        #paystatusTable{
+            width: 100%;
+        }
+        #statusTable span ,
+        #paystatusTable span{
+            display: inline-table;
+            width: 120px;
+            line-height: 30px;
+        }
+        div,span {
+            border: 1px solid aqua;
+        }
+    </style>
+</head>
+<body>
+    <!-- outLine -->
+    <div id="outLine">
+
+        <!-- top-header -->
+        <div id="top-header">   
+            <div>
+                <h1>식권자판기</h1>
+            </div>
+            <div id = "statusTable">
+                <span>식권 개수</span>
+                <span>식권 가격</span>
+                <span>오만원</span>
+                <span>일만원</span>
+                <span>오천원</span>
+                <span>일천원</span>
+                <span>오백원</span>
+                <span>일백원</span>
+            </div>
+            <hr>
+            <div id = "paystatusTable">
+                <span id = "statusTicket">0</span>
+                <span>3200</span>
+                <span class="statusCount">0</span>
+                <span class="statusCount">0</span>
+                <span class="statusCount">0</span>
+                <span class="statusCount">0</span>
+                <span class="statusCount">0</span>
+                <span class="statusCount">0</span>
+            </div>
+            <hr>
+        </div>
+
+        <!-- emptyTable -->
+        <div class="emptyTable"></div>
+        
+        <!-- centerTable -->
+        <div class="centerTable">
+            <div id="LcountTable">
+                <h2>관리자</h2>
+                <div>
+                    <span>오만원</span>
+                    <span>50000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>일만원</span>
+                    <span>10000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>오천원</span>
+                    <span>5000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>일천원</span>
+                    <span>1000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>오백원</span>
+                    <span>500</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>일백원</span>
+                    <span>100</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>총 금액</span>
+                    <span></span>
+                    <span></span>
+                    <span id="Ltotal">0</span>
+                    <span></span>
+                </div>
+                <div>
+                    <button class="blackBtn" onclick="LplusMoney(this)">① 잔돈 충전하기</button>
+                </div>
+            </div>
+            <div id="RcountTable">
+                <h2>사용자</h2>
+                <div>
+                    <span>오만원</span>
+                    <span>50000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>일만원</span>
+                    <span>10000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>오천원</span>
+                    <span>5000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>일천원</span>
+                    <span>1000</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>오백원</span>
+                    <span>500</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>일백원</span>
+                    <span>100</span>
+                    <span><button class="LminusBtn">-</button></span>
+                    <span class="Lcount">0</span>
+                    <span><button class="LplusBtn">+</button></span>
+                </div>
+                <div>
+                    <span>투입 금액</span>
+                    <span></span>
+                    <span></span>
+                    <span id="Ltotal">0</span>
+                    <span></span>
+                </div>
+                <div>
+                    <button class="blackBtn" onclick="LplusMoney(this)">③ 금액 투입하기</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- centerTable -->
+        <div class="centerTable">
+            <div id="LticketCountTable">
+                <div>충전할 식권 매수</div>
+                <span><button class="LminusBtn">-</button></span>
+                <span class="Lcount">0</span>
+                <span><button class="LplusBtn">+</button></span>
+                <div><button class="blackBtn" onclick="LplusTicket(this)">② 식권 충전하기</button></div>
+            </div>
+            <div id="RticketCountTable">
+                <div>구매할 식권 매수</div>
+                <span><button class="LminusBtn">-</button></span>
+                <span class="Lcount">0</span>
+                <span><button class="LplusBtn">+</button></span>
+                <div><button class="blackBtn" onclick="LplusTicket(this)">④ 식권 구입하기</button></div>
+            </div>
+        </div>
+        
+        <!-- emptyTable -->
+        <div class="emptyTable"></div>
+        
+        <!-- centerTable -->
+        <div class="centerTable">
+            <div id="receiptEmptyId"></div>
+            <div style="width: 150px;"></div>
+            <div id ="receipt">
+                <div id = "receiptTable">
+                    <div>
+                        <span>영수증 출력</span>
+                    </div>
+                    <div>
+                        <span>결제 금액</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>투입 금액</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>거스름 돈</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>오만원</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>일만원</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>오천원</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>일천원</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>오백원</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>일백원</span>
+                        <span class="receiptCount">0</span>
+                    </div>
+                    <div>
+                        <span>이용해주셔서 감사합니다.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--                    기능구현                     -->
+
+    <script>
+
+        let $LminusBtnList = document.querySelectorAll(".LminusBtn");
+        let $LplusBtnList = document.querySelectorAll(".LplusBtn");
+        let $LcountList = document.querySelectorAll(".Lcount");
+
+        // 왼쪽 [+][-] 버튼 
+        //  클릭 이벤트
+        function LsetEvent() {
+            for(let i = 0;i<$LminusBtnList.length;i++){
+                $LminusBtnList[i].addEventListener("click",LminusClick);
+                $LplusBtnList[i].addEventListener("click",LplusClick);
+            }
+        }
+
+        // 왼쪽 [-] 버튼
+        // 함수
+        function LminusClick(e) {
+            for(let i = 0; i<$LminusBtnList.length;i++){
+                if(e.target == $LminusBtnList[i]){
+                    if(Number($LcountList[i].textContent)>0){
+                        //0보다 작아지지 않기 위한 조건 마이너스 버튼이니까
+                        $LcountList[i].textContent = Number($LcountList[i].textContent)-1;
+                    }
+                }
+            }
+        }
+
+        // 왼쪽 [+] 버튼
+        // 함수
+        function LplusClick(e) {
+            for(let i = 0; i<$LplusBtnList.length;i++){
+                if(e.target == $LplusBtnList[i]){
+                    $LcountList[i].textContent = Number($LcountList[i].textContent)+1;
+                }
+            }
+        }
+
+        // 왼쪽 [잔돈 충전하기] 버튼 기능
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outLine {            width: 1600px;            margin: 20px;        }
+        /*--------------------------------------------------*/
+        #headerTable {            width: 100%;            font-size: 35px;        }
+        #submenuHeader {color: #C32033;text-align: left;margin-left: 20px;font-weight: bold;}
+        #headerLine {color: ghostwhite;width: 99.9%;}
+        #subMenuTable {height: 33px;width: 100%;}
+        #menuText {display: block;
+        /* 기본 설정 막기  (중앙정렬)*/
+            margin-left: 15px;
+            color: gray;text-align: left;font-size: 45px;font-weight: bold;}
+        #header_checker_Space {height: 35px;}
+        #radioBox {width: 100%;}
+        /* 좌우 사이드 화살표 버튼 */
+        .arrow {width: 15px;}
+        .sideButton1,.sideButton2,.sideButton3,.sideButton4 {background-color: #fff;padding-bottom: 90px;border: none;cursor: pointer;}
+        .sideBtnImg {width: 100px;}
+        /* 테이블 추가 */
+
+        /* 이미지 */
+        .imgBox {height: 200px;padding-top: 20px}
+        .imgSideSpace {width: 10px;}
+        .imgTable {width: 100%;}
+        /* 크기 */
+        .img {width: 80%;}
+
+        /* 추가제료 크기 */
+        .imgSideMenu {width: 40%;}
+
+        /* 사이드메뉴이름 */
+        .menuTxtCHOI,.menuTxtICE,.menuTxtsugar,.menuTxtEXTRA {height: 55px;font-weight: bold;font-size: 40px;}
+
+        /* 사이드메뉴가격 */
+        .menuPay {height: 45px;font-weight: 900;font-size: 30px;color: #C32033;}
+        .sugarChecker {margin: 0 auto;text-align: center;}
+        .selectBox {width: 250px;height: 100px;}
+
+        /*-------------------------------------------------------------------*/
+        #list {width: 100%;}
+        #emptySpace {height: 450px;width: 100%;}
+        #emptySpace2 {height: 80px;width: 100%;}
+        #emptySpace3 {height: 80px;width: 100%;}
+        #slideSpace {width: 100%;}
+        #pre_area {text-align: left;}
+        #next_area {text-align: right;}
+        .PRE_NEXT_Button {width: 280px;height: 120px;background-color: white;border-radius: 15px;
+            border: 3px solid #999;}
+        .PRE_NEXT_Txt {font-size: 35px;}
+        .mainPay {font-weight: bold;font-size: 35px;color: #C32033;}
+        .optionalPay {font-weight: bold;color: #C32033;font-size: 25px;}
+        #op_M {text-align: left;}
+        #op_P {text-align: right;}
+        #m_M {text-align: left;}
+        #m_P {text-align: right;}
+        #btn_cancle_menu_table {width: 100%;height: 250px;}
+        .menuSetArea {width: 50%;}
+        .lastButton {font-size: 48px;font-weight: bold;color: white;}
+        .btn_cancle_menu {width: 90%;height: 80%;background-color: #C32033;border-radius: 15px;
+            border: 3px solid #999;}
+        /*-------------------------------------------------------------------*/
+        /*  공통  */
+        table,
+        tr,
+        td {
+            border-collapse: collapse;
+            border: 1px solid aqua;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        body,
+        html {
+            height: 100%;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* 버튼 박스 */
+        button {
+            cursor: pointer;
+        }
+
+        /* 라디오 박스 버튼 이미지 */
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        input[type="radio"]+label span.round {
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            font-size: 0;
+            vertical-align: middle;
+            background: url('./img/radio-off.svg') no-repeat;
+            cursor: pointer;
+        }
+
+        input[type="radio"]:checked+label span.round {
+            background: url('./img/radio-on.svg') no-repeat;
+        }
+
+
+        /* 채크 박스 버튼 이미지 */
+        input[type=checkbox] {
+            display: none;
+        }
+
+        input[type=checkbox]+label {
+            cursor: pointer;
+            padding: 45px;
+            background-repeat: no-repeat;
+            background-image: url('./img/checker-off.svg');
+        }
+
+        input[type=checkbox]:checked+label {
+            background-image: url('./img/checker-on.svg');
+        }
+
+        input[type=checkbox]:disabled+label {
+            background-image: url('./img/checker-disabled.svg');
+        }
+
+        /* ---------------슬라이드박스-------------*/
+        #dot {
+            text-align: center;
+        }
+
+        #dot>ul>li {
+            display: inline-block;
+
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            margin: 20px;
+            vertical-align: middle;
+            background: gray;
+            cursor: pointer;
+        }
+
+        #dot>ul li a {
+            display: block
+        }
+
+        #dot ul li.on {
+            background: #C32033;
+        }
+    </style>
+</head>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+
+
+<body>
+    <div id="subMenuPopUp">
+    <table id="outLine">
+        <tr>
+            <td>
+
+                <!-- 서브메뉴 해더 -->
+                <table id="headerTable">
+                    <tr>
+                        <td>
+                            <h1 id="submenuHeader">딸기쥬얼리밀크티</h1>
+                            <hr id="headerLine">
+                        </td>
+                    </tr>
+                </table>
+                <!-- 서브메뉴 해더 끝-->
+
+                <!-- 서브메뉴 시작 -->
+                <!-- 아이스 핫 포장 매장 메뉴 -->
+                <table id="subMenuTable">
+
+                    <!-- 해더 -->
+                    <tr>
+                        <td>
+                            <span id="menuText">COLD/HOT</span>
+                        </td>
+                    </tr>
+                    <!-- 해더 끝 -->
+
+                    <!-- 해더 밑 공간 있어요-->
+                    <tr>
+                        <td id="header_checker_Space"></td>
+                    </tr>
+                    <!-- 해더 밑 공간 있어요 끝-->
+
+                    <!-- 차가움 선택 박스 -->
+                    <tr>
+                        <td>
+
+
+                            <!-- 라디오 테이블 -->
+                            <table id="radioBox">
+
+                                <!-- 라디오 박스 -->
+                                <tr>
+                                    <td></td>
+                                    <td class="selectBox">
+                                        <span class="radio1" id="co">
+                                            <input type="radio" id="cold_out" name="CHOI" value="C_O" checked="">
+                                            <label for="cold_out"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <span class="radio1" id="ci">
+                                            <input type="radio" id="cold_in" name="CHOI" value="C_I">
+                                            <label for="cold_in"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <span class="radio1" id="ho">
+                                            <input type="radio" id="hot_out" name="CHOI" value="H_O">
+                                            <label for="hot_out"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+
+                                        <span class="radio1" id="hi">
+                                            <input type="radio" id="hot_in" name="CHOI" value="H_I">
+                                            <label for="hot_in"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                </tr>
+                                <!-- 라디오 박스 끝 -->
+
+                                <!-- CHOI 이미지 박스 -->
+                                <tr>
+
+                                    <!-- 왼쪽 화살표 -->
+                                    <td class="arrow">
+                                        <button class="sideButton1" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_left_box_disable_icon.svg">
+                                        </button>
+                                    </td>
+
+                                    <!-- 라디오 종류 -->
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="cold_out"><img class="img"
+                                                            src="img/COLD_OUT.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtCHOI">COLD(포장)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="cold_in"><img class="img"
+                                                            src="img/COLD_IN.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtCHOI">COLD(매장)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="hot_out"><img class="img"
+                                                            src="img/HOT_OUT.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtCHOI">HOT (포장)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="hot_in"><img class="img"
+                                                            src="img/HOT_IN.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtCHOI">HOT (매장)</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <!-- 오른쪽 화살표 -->
+                                    <td class="arrow">
+                                        <button class="sideButton1" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_right_box_disable_icon.svg">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- CHOI 이미지 박스 끝-->
+
+                            </table>
+                            <!-- 라디오 테이블 끝 -->
+                        </td>
+                    </tr>
+                    <!-- 차가움 선택 박스 끝 -->
+
+                </table>
+                <!-- 아이스 핫 포장 매장 메뉴 끝 -->
+
+                <!-- 얼음 정도 메뉴 -->
+                <table id="subMenuTable">
+
+                    <!-- 해더 -->
+                    <tr>
+                        <td>
+                            <span id="menuText">얼음양</span>
+                        </td>
+                    </tr>
+                    <!-- 해더 끝 -->
+
+                    <!-- 해더 밑 공간 있어요-->
+                    <tr>
+                        <td id="header_checker_Space"></td>
+                    </tr>
+                    <!-- 해더 밑 공간 있어요 끝-->
+
+                    <!-- 얼음 선택 박스 -->
+                    <tr>
+
+                        <td>
+
+                            <!-- 라디오 테이블 -->
+                            <table id="radioBox">
+
+                                <!-- 라디오 박스 -->
+                                <tr>
+                                    <td></td>
+                                    <td class="selectBox">
+                                        <span class="radio2" id="ri">
+                                            <input type="radio" id="regular_ice" name="ICE" value="R_I" checked="">
+                                            <label for="regular_ice"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <span class="radio2" id="fi">
+                                            <input type="radio" id="full_ice" name="ICE" value="F_I">
+                                            <label for="full_ice"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <span class="radio2" id="li">
+                                            <input type="radio" id="less_ice" name="ICE" value="L_I">
+                                            <label for="less_ice"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                </tr>
+                                <!-- 라디오 박스 끝 -->
+
+                                <!-- ice 이미지 박스 -->
+                                <tr>
+
+                                    <!-- 왼쪽 화살표 -->
+                                    <td class="arrow" rowspan="3">
+                                        <button class="sideButton2" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_left_box_disable_icon.svg">
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="regular_ice"><img class="img"
+                                                            src="img/regularice.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtICE" class="iceMenuName">Regular Ice</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="full_ice"><img class="img"
+                                                            src="img/lessice.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtICE"class="iceMenuName">Full Ice</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="less_ice"><img class="img"
+                                                            src="img/lessice.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtICE" class="iceMenuName">Less Ice</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+
+                                            </tr>
+                                            <tr>
+
+                                            </tr>
+                                            <tr>
+
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <!-- 라디오 종류 -->
+                                    <!-- 오른쪽 화살표 -->
+                                    <td class="arrow" rowspan="3">
+                                        <button class="sideButton2" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_right_box_disable_icon.svg">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- ice 이미지 박스 끝-->
+
+                            </table>
+                            <!-- 라디오 테이블 끝 -->
+                        </td>
+
+                    </tr>
+                    <!-- 얼음 선택 박스 끝 -->
+
+                </table>
+                <!-- 얼음 정도 메뉴 끝 -->
+
+                <!-- 설탕 정도 메뉴 시작 -->
+                <table id="subMenuTable">
+
+                    <!-- 해더 -->
+                    <tr>
+                        <td>
+                            <span id="menuText">당도</span>
+                        </td>
+                    </tr>
+                    <!-- 해더 끝 -->
+
+                    <!-- 해더 밑 공간 있어요-->
+                    <tr>
+                        <td id="header_checker_Space"></td>
+                    </tr>
+                    <!-- 해더 밑 공간 있어요 끝-->
+
+                    <!-- 설탕 선택 박스 -->
+                    <tr>
+                        <td>
+
+                            <!-- 라디오 테이블 -->
+                            <table id="radioBox">
+
+                                <!-- 라디오 박스 -->
+                                <tr>
+                                    <td></td>
+                                    <td class="selectBox">
+                                        <span class="radio3" id="s70">
+                                            <input type="radio" id="sugar70" name="sugar" value="70" checked="">
+                                            <label for="sugar70"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <span class="radio3" id="s100">
+                                            <input type="radio" id="sugar100" name="sugar" value="100">
+                                            <label for="sugar100"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+
+                                        <span class="radio3" id="s50">
+                                            <input type="radio" id="sugar50" name="sugar" value="50">
+                                            <label for="sugar50"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+
+                                        <span class="radio3" id="s30">
+                                            <input type="radio" id="sugar30" name="sugar" value="30">
+                                            <label for="sugar30"><span class="round">라디오버튼</span></label>
+                                        </span>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                </tr>
+                                <!-- 라디오 박스 끝-->
+
+                                <!-- 설탕 이미지 박스 -->
+                                <tr>
+
+                                    <!-- 왼쪽 화살표 -->
+                                    <td class="arrow" rowspan="3">
+                                        <button class="sideButton3" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_left_box_disable_icon.svg">
+                                        </button>
+                                    </td>
+
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="sugar70"><img class="img"
+                                                            src="img/70per.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtsugar">70%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="sugar100"><img class="img"
+                                                            src="img/100per.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtsugar">100%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="sugar50"><img class="img"
+                                                            src="img/50per.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtsugar">50%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="sugar30"><img class="img"
+                                                            src="img/30per.svg"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtsugar">30%</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +0 </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <!-- 오른쪽 화살표 -->
+                                    <td class="arrow" rowspan="3">
+                                        <button class="sideButton3" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_right_box_active_icon.svg">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- 설탕 이미지 박스 끝 -->
+
+                            </table>
+                            <!-- 라디오 테이블 끝 -->
+                        </td>
+
+                    </tr>
+                    <!-- 설탕 선택 박스 끝-->
+
+                </table>
+                <!-- 설탕 정도 메뉴 끝 -->
+
+                <!-- 추가 메뉴 시작 -->
+                <table id="subMenuTable">
+
+                    <!-- 해더 -->
+                    <tr>
+                        <td>
+                            <span id="menuText">토핑(브라운슈가 메뉴는1개,베콤메뉴는2개, 그 외에는 3개)</span>
+                        </td>
+                    </tr>
+                    <!-- 해더 끝 -->
+
+                    <!-- 해더 밑 공간 있어요-->
+                    <tr>
+                        <td id="header_checker_Space"></td>
+                    </tr>
+                    <!-- 해더 밑 공간 있어요 끝-->
+
+                    <!-- 토핑 선택 박스 -->
+                    <tr>
+                        <td>
+
+                            <!-- 라디오 테이블 -->
+                            <table id="radioBox">
+
+                                <!-- 라디오 박스 -->
+
+
+                                <tr>
+                                    <td></td>
+                                    <td class="selectBox">
+                                        <input type="checkbox" name="checker" id="purl" onclick="pay(purl,purlPay)"><label for="purl"></label>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <input type="checkbox" name="checker" id="milkform" onclick="pay(milkform,milkformPay)"><label
+                                            for="milkform"></label>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <input type="checkbox" name="checker" id="coconut" onclick="pay(coconut,coconutPay)"><label for="coconut" ></label>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                    <td class="selectBox">
+                                        <input type="checkbox" name="checker" id="aloe" onclick="pay(aloe,aloePay)"><label for="aloe"></label>
+                                    </td>
+                                    <td rowspan="3" id="imgSideSpace"></td>
+                                </tr>
+                                <!-- 라디오 박스 끝-->
+
+                                <!-- 추가 토핑 이미지 박스 -->
+                                <tr>
+
+                                    <!-- 왼쪽 화살표 -->
+                                    <td class="arrow" rowspan="3">
+                                        <button class="sideButton4" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_left_box_disable_icon.svg">
+                                        </button>
+                                    </td>
+
+                                    <!-- 라디오 종류 -->
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="purl"><img class="imgSideMenu"
+                                                            src="img/purl.gif"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtEXTRA" id="purlTxt">펄</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +<span id="purlPay">500</span> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="milkform"><img class="imgSideMenu"
+                                                            src="img/milkform.gif"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtEXTRA" id="milkformTxt">밀크폼</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +<span id="milkformPay">500</span> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="coconut"><img class="imgSideMenu"
+                                                            src="img/coconut.gif"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtEXTRA" id="coconutTxt">코코넛</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +<span id="coconutPay">700</span> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <td>
+                                        <table class="imgTable">
+                                            <tr>
+                                                <td class="imgBox"><label for="aloe"><img class="imgSideMenu"
+                                                            src="img/aloe.gif"></label></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuTxtEXTRA" id="aloeTxt">알로에</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="menuPay"> +<span id="aloePay">1000</span> </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                    <!-- 오른쪽 화살표 -->
+                                    <td class="arrow" rowspan="3">
+                                        <button class="sideButton4" type="button">
+                                            <img class="sideBtnImg" src="img/arrow_right_box_active_icon.svg">
+                                        </button>
+                                    </td>
+                                </tr>
+                                <!-- 추가 토핑 이미지 박스 끝 -->
+
+                            </table>
+                            <!-- 라디오 테이블 끝 -->
+                        </td>
+
+                    </tr>
+                    <!-- 토핑 선택 박스 끝-->
+
+                </table>
+                <!-- 추가 메뉴 끝 -->
+
+                <!-- 서브메뉴 끝 -->
+                <!-- 리스트 메뉴 -->
+                <table id="list"">
+                    <tr>
+                        <td id=" emptySpace" colspan=" 99">
+            </td>
+        </tr>
+        <tr>
+            <td id="pre_area">
+                <button class="PRE_NEXT_Button">
+                    <div class="PRE_NEXT_Txt">이전</div>
+                </button>
+            </td>
+
+            <td id="slideSpace" colspan="2">
+                <div id="dot">
+                    <ul>
+                        <li class="on"><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </td>
+            <td colspan="99" id="next_area">
+                <button class="PRE_NEXT_Button">
+                    <div class="PRE_NEXT_Txt">다음</div>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="99" id="emptySpace2"></td>
+        </tr>
+        <tr>
+            <td id="m_M" class="mainPay">메뉴금액</td>
+            <td colspan="99" id="m_P" class="mainPay">200원</td>
+        </tr>
+        <tr>
+            <td id="op_M" colspan="2" class="optionalPay">옵션 : COLD(포장),Regular Ice, 50%</td>
+            <td colspan="99" id="op_P" class="optionalPay"> 0 원</td>
+        </tr>
+        <tr>
+            <td colspan="99">
+                <table id="btn_cancle_menu_table">
+
+                    <tr>
+                        <td class="menuSetArea">
+
+                            <button class="btn_cancle_menu" type="button" onclick="location.href='window.close();'" >
+                                <div class="lastButton">취소</div>
+                            </button>
+
+                        </td>
+                        <td class="menuSetArea">
+                            <button class="btn_cancle_menu" type="button" onclick="location.href='window.close();'" >
+                                <div class="lastButton">메뉴 담기</div>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    </td>
+    </tr>
+    </table>
+</div>
+    <script>
+        let originPay = 4300;       //DB 에서 긁어올  원래 값
+        let total_op = 0;
+
+
+        let mPay = document.querySelector('#m_P');
+        let opPay = document.querySelector('#op_P');
+        let mOp = document.querySelector('#op_M');
+        let total = originPay;
+        window.onload = function (){
+            
+            mPay.innerHTML = total +'원';
+            option();
+        }
+
+        let check_CHOI = document.getElementsByName('CHOI');
+        let check_ICE = document.getElementsByName('ICE');
+        let check_sugar = document.getElementsByName('sugar');
+        let check_EXTRA = document.getElementsByName('checker');
+
+        // check_CHOI[1].onclick = function() {
+        //     alert("11111");
+        // }
+
+        for(let i=0; i<check_CHOI.length; i++) {
+            check_CHOI[i].addEventListener("click", option);
+        }
+        for(let i=0; i<check_ICE.length; i++) {
+            check_ICE[i].addEventListener("click", option);
+        }
+        for(let i=0; i<check_sugar.length; i++) {
+            check_sugar[i].addEventListener("click", option);
+        }
+        for(let i=0; i<check_EXTRA.length; i++) {
+            check_EXTRA[i].addEventListener("click", option);
+        }
+        
+        // for(i in check_ICE){         놀랍게도 아무튼 안됨  for 단축문 안에서 addEventListener를 못받아들이나봄
+        //     // console.log("index = " + i);
+        //     // console.log(check_ICE[i]);
+        //     // check_ICE[i].addEventListener("click", option);
+        // }
+
+        let m_choi= document.querySelectorAll('.menuTxtCHOI');
+        let m_ice= document.querySelectorAll('.menuTxtICE');
+        let m_sugar= document.querySelectorAll('.menuTxtsugar');
+        let m_ex= document.querySelectorAll('.menuTxtEXTRA');
+
+        function pay(a,b){
+            if(a.checked){
+                total+= Number(b.innerHTML);
+                total_op+= Number(b.innerHTML);
+            }else{
+                total-=Number(b.innerHTML);
+                total_op-= Number(b.innerHTML);
+            }
+            mPay.innerHTML = total  +'원';
+            opPay.innerHTML = total_op  +'원';
+        }
+
+
+        //당도 슬라이드 구현  
+        // radio 채크  배열 만들어서  
+
+        let icname = document.querySelectorAll(".iceMenuName");
+
+        function option(){
+
+            let totalSet = "";
+            for (i in check_CHOI){
+                if(check_CHOI[i].checked){
+                    totalSet +=m_choi[i].innerText;
+                }
+            }
+            totalSet+=', ';
+            for (i in check_ICE){
+                if(check_ICE[i].checked){
+                    totalSet +=m_ice[i].innerText;
+                }
+            }
+            totalSet+=', ';
+            for (i in check_sugar){
+                if(check_sugar[i].checked){
+                    totalSet +=m_sugar[i].innerText;
+                }
+            }
+            totalSet+=', ';
+            for (i in check_EXTRA){
+                if(check_EXTRA[i].checked){
+                    totalSet +=m_ex[i].innerText +', ';
+                }
+            }
+
+            mOp.innerHTML = '옵션 : '+ totalSet;
+        }
+        
+        
+    </script>
+
+
+</body>
+
+</html>

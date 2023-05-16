@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outLine {
+            width: 1080px;
+            height: 1920px;
+        }
+
+        /*--------------------------------------------------*/
+        #headerTable {
+            width: 100%;
+            font-size: 25px;
+        }
+
+        #oderConformHeader {
+            color: #C32033;
+            text-align: left;
+            margin-left: 10px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        #oderConformSub{
+        
+            text-align: left;
+            margin-left: 20px;
+            font-weight:900;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+        #headerLine {
+            color: ghostwhite;
+            width: 99.9%;
+        }
+        /*-------------------------------------------------------------------*/
+        #contentsTable{width: 100%;height: 1050px;}
+        .contentsSet{width: 80%;text-align: center;}
+        #insertCard{width: 100%;background-color: #eee;}
+
+        #contentsTxt{color: #555;font-size: 70px; font-weight: bold;padding-top: 200px;text-align: center; margin-top: 0px;}
+        #contentsTxt2{font-size: 20px;color: cornflowerblue;font-weight: bold;}
+        #contentsImgSet{height: 70%; text-align: center; margin-top: 10px; margin-bottom: 100%;}
+        #contentsImg{width: 50%; padding-bottom: 600px;}
+
+        /*-------------------------------------------------------------------*/
+        #list {            width: 100%;        }
+        #emptySpace {            height: 50px;            width: 100%;        }
+        #totalPay{            width: 100%;       }
+        .totlaPSet{ display: none; }
+        #mainPay {            font-weight: bold;            font-size: 80px;            color: #C32033;            text-align: left;        }
+        #optionalPay {            font-weight: bold;            color: #C32033;            font-size: 80px;            text-align: right;        }
+        #m_M {            text-align: left;        }
+        #m_P {            text-align: right;        }
+        #btn_cancle_menu_table {width: 100%;            height: 250px;                   }
+        .menuSetArea {            width: 50%;            text-align: center;        }
+        .lastButton {            font-size: 48px;            font-weight: bold;            color: white;        }
+        .btn_cancle_menu {            width: 90%;            height: 80%;            background-color: #C32033;            border-radius: 15px;            border: 3px solid #e93046;                    }
+
+        #preBtn{display: none; } 
+        #nxtBtn{display: none;}
+        /*-------------------------------------------------------------------*/
+        /*  공통  */
+        table,
+        tr,
+        td {
+            border-collapse: collapse;
+            /* border: 1px solid aqua; */
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* 버튼 박스 */
+        button {
+            cursor: pointer;
+        }
+
+        /* ---------------슬라이드박스-------------*/
+        #dot {
+            text-align: center;
+        }
+
+        #dot>ul>li {
+            display: inline-block;
+
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            margin: 20px;
+            vertical-align: middle;
+            background: gray;
+            cursor: pointer;
+        }
+
+        #dot>ul li a {
+            display: block
+        }
+
+        #dot ul li.on {
+            background: #C32033;
+        }
+    </style>
+</head>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+
+
+<body>
+
+    <table id="outLine">
+        <tr>
+            <td>
+                <!-- 서브메뉴 해더 -->
+                <table id="headerTable">
+                    <tr>
+                        <td>
+                            <h1 id="oderConformHeader"> 5.카드 결제</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 id="oderConformSub">카드를 다음과 같이 투입해 주세요.</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><hr id="headerLine"></td>
+                    </tr>
+                </table>
+                <!-- 서브메뉴 해더 끝-->
+                
+                <table id="emptySpace">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+                <!-- 주문 리스트-->
+                <table id="contentsTable">
+
+                    <tr>
+                        <td class="contentsSet">
+                            <table id="insertCard">
+                                <tr>
+                                    <td id="contentsTxt">
+                                        카드 투입구<br>
+                                        INSERT CARD
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="contentsTxt2">
+                                        카드 결제 후 다음 화면으로 갑니다. (5초뒤)
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td id="contentsImgSet">
+                                        <img id="contentsImg" src="img/insertcard.png">
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                <!-- 주문 리스트 끝 -->
+                <table id="emptySpace">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+                <!-- 리스트 메뉴 -->
+                <table id="list"">
+
+                    <tr>
+                        <td>
+                            <table id="totalPay">
+                                
+                                <tr>
+                                    <td class="totlaPSet" id="mainPay">총 결제 금액</td>
+                                    <td class="totlaPSet" id="optionalPay">4200원</td>
+                                </tr>
+
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+
+                            <table id="btn_cancle_menu_table">
+                                <tr>
+                                    <td class="menuSetArea">
+                                        <button class="btn_cancle_menu" id="preBtn" type="button" onclick="location.href='#'" >
+                                            <div class="lastButton" >이전</div>
+                                        </button>
+            
+                                    </td>
+                                    <td class="menuSetArea">
+                                        <button class="btn_cancle_menu" id="nxtBtn" type="button" onclick="location.href='#'" >
+                                            <div class="lastButton">다음</div>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </table>
+                            
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
+
+    <script>
+    let auto = setInterval(() => {
+        location.href='popUpPayMent06.html'
+    }, 5000);
+    </script>
+
+
+</body>
+
+</html>

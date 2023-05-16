@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                    @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+  
+        #all {
+            width: 1080px;
+            height: 1920px;
+            margin: 0 auto;
+        }
+        #header {
+            margin: 0 auto;
+        }
+        #headerMenu{
+            height: 120px;
+            background-color: #C32033;
+            width: 1080px;
+            text-align: center;
+            font-family: 'OTWelcomeRA';
+            color: white;
+            font-size: 40px;
+        }
+
+        #logoSpace{
+            text-align: center;
+            padding: 60px;
+        }
+        #logo{
+            width: 250px;
+            text-align: center;
+        }
+        #jonInfo{
+            text-align: center;
+            font-family: 'OTWelcomeRA';
+            font-size: 50px;
+            font-weight: bold;
+            color: grey;
+            padding: 50px;
+            
+        }
+        #imgTable {
+            width: 1080px;
+            height: 1100px;
+            text-align: center;
+        }
+        #celebrate {
+            width: 450px;
+        }
+        #lastInfo{
+            font-size: 35px;
+            font-family: 'OTWelcomeRA';
+            text-align: center;
+        }
+        #buttonSpace{
+            height: 200px;
+        }
+        #homeBtn{
+            width: 300px;
+            height: 60px;
+            font-size: 30px;
+            font-family: 'OTWelcomeRA';
+            text-align: center;
+            background-color: #C32033;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            border: #6a101b;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+        <table id="header">
+            <tr> 
+                <td id="headerMenu">
+                    
+                    회 원 가 입</td>
+            </tr>
+            <tr>
+                <td id="logoSpace">
+                    <img id="logo" src="img/logo.jpg">
+                </td>
+            </tr>
+            <tr>
+                <td id="jonInfo">
+                    회원님의 가입을 진심으로 축하드립니다.
+                    <br>이제부터 공차의 서비스를 좀 더 쉽게 <br>이용하실 수 있습니다.
+                </td>
+            </tr>
+        </table>
+       <table id="imgTable">
+        <tr>
+            <td id="imgSpace">
+                <img id="celebrate" src="img/celebrate.png">
+            </td>
+        </tr>
+        <tr>
+            <td id="lastInfo">더 많은 서비스를 이용하시려면 아래의 버튼을 눌러주세요.</td>
+        </tr>
+        <tr>
+            <td id="buttonSpace">
+                <button id="homeBtn" onclick="home()">홈으로 가기</button>
+            </td>
+        </tr>
+       </table>
+    </div>
+    <script>
+      function home(){
+        location.href="1.home.html";
+      }
+    </script>
+</body>
+</html>

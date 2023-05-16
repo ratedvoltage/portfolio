@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+                @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+    
+        #all {
+            width: 1080px;
+            height: 1920px;
+            margin: 0 auto;
+        }
+        /* header */
+        #header {
+            margin: 0 auto;
+        }
+        #headerMenu{
+            height: 120px;
+            background-color: #C32033;
+            width: 1080px;
+            text-align: center;
+            font-family: 'OTWelcomeRA';
+            color: white;
+            font-size: 40px;
+        }
+
+        #logoSpace{
+            text-align: center;
+            padding: 60px;
+        }
+        #logo{
+            width: 250px;
+            text-align: center;
+        }
+        #searchInfo{
+            text-align: center;
+            font-family: 'OTWelcomeRA';
+            font-size: 28px;
+            font-weight: bold;
+            color: grey;
+            padding: 50px;
+            
+        }
+        /* content */
+
+
+        .SearchTable{
+            margin: 0 auto;
+        }
+        .search {
+            font-family: 'OTWelcomeRA';
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(48, 36, 96);
+
+        }
+        .searchMenu{
+            width: 150px;
+            text-align: left;
+            font-family: 'OTWelcomeRA';
+            padding: 30px;
+            font-size: 20px;
+            height: 50px;
+        }
+        .searchInput{
+            width: 400px;
+            font-size: 20px;
+            font-family: 'OTWelcomeRA';
+
+        }
+        .inputText{
+            width: 380px;
+            height: 50px;
+            color: gainsboro;
+            border: 1px solid gainsboro;
+            font-family: 'OTWelcomeRA';
+            font-size: 15px;
+            padding: 3px;
+            padding-left: 10px;
+        }
+        .selectMenu{
+            font-size: 20px;
+        }
+        #tableSlice {
+            width: 800px;
+            margin: 0 auto;
+            padding: 20px ;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+        }
+       .searchBtn{
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+        font-family: 'OTWelcomeRA';
+        background-color: #C32033;
+        color: white;
+        cursor: pointer;
+        text-align: center;
+       }
+        #submitDb{
+            margin: 0 auto;
+            padding: 50px;
+            height: 150px;
+        }
+        #login{
+            height: 60px;
+            width: 300px;
+            color: black;
+            background-color: white;
+            border: 1px solid #C32033;
+            border-radius: 5px;
+            font-family: 'OTWelcomeRA';
+            font-size: 28px;
+            text-align: center;
+            padding: 5;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+    <table id="header">
+        <tr> 
+            <td id="headerMenu">
+                
+                ID / PW 찾기</td>
+        </tr>
+        <tr>
+            <td id="logoSpace">
+                <img id="logo" src="img/logo.jpg">
+            </td>
+        </tr>
+        <tr>
+            <td id="searchInfo">
+                아래의 항목을 모두 입력해주시기 바랍니다.
+                <br>
+            </td>
+        </tr>
+    </table>
+    <table class="SearchTable">
+        <tr>
+            <td>
+                <span class="search">아이디 찾기</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="searchMenu"> 
+               이름 :
+            </td>
+            <td class="searchInput" colspan="2">
+                <input class="inputText" type="text" placeholder="이름을 입력하세요." onkeyup="changeColor()">
+            </td>
+        </tr>
+        <tr>
+            <td class="searchMenu" >유형 선택 : </td>
+            <td class="searchInput">
+                <input type="radio" class="selectMenu" name="menu" value="email">이메일로 찾기
+            </td>
+            <td rowspan="2"><button class="searchBtn">찾기</button></td>
+        </tr>
+        <tr>
+            <td class="searchMenu"></td>
+            <td class="searchInput">
+                <input type="radio" class="selectMenu" name="menu" value="tel">휴대전화로 찾기
+            </td>
+        </tr>
+    </table>
+    <hr id="tableSlice">
+    <table class="SearchTable">
+        <tr>
+            <tr>
+                <td>
+                    <span class="search">비밀번호 찾기</span>
+                </td>
+            </tr> 
+        </tr>
+        <tr>
+            <td class="searchMenu">
+                이름 : 
+            </td>
+            <td class="searchInput" colspan="2">
+                <input class="inputText" type="text" placeholder="이름을 입력하세요." onkeyup="changeColor()">
+            </td>
+        </tr>
+        <tr>
+            <td class="searchMenu">
+                아이디 : 
+            </td>
+            <td class="searchInput" colspan="2">
+                <input class="inputText" type="text" placeholder="아이디를 입력하세요." onkeyup="changeColor()">
+            </td>
+        </tr>
+        <tr>
+            <td class="searchMenu">유형 선택 : </td>
+            <td class="searchInput">
+                <input type="radio" class="selectMenu" name="menu" value="email">이메일로 찾기
+            </td>
+            <td rowspan="2"><button class="searchBtn">찾기</button></td>
+        </tr>
+        <tr>
+            <td class="searchMenu"></td>
+            <td class="searchInput">
+                <input type="radio" class="selectMenu" name="menu" value="tel">휴대전화로 찾기
+            </td>
+        </tr>
+    </table>
+    
+    <table id="submitDb">
+        <tr>
+            <td>
+                <button id="login" onclick="loginPage()">로그인하기</button>
+            </td>
+        </tr>
+    </table>
+    </div>
+    <script>
+        function before(){
+            location.href="login.html";
+        }
+        function changeColor(){
+           let text = document.querySelectorAll(".inputText");
+            for(let i=0; i<text.length; ++i){
+                text[i].style.color = "black";
+            }
+        }    
+
+        function loginPage(){
+            location.href = "login.html";
+        }
+    </script>
+</body>
+</html>

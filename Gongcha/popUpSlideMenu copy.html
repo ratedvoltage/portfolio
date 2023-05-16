@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #space{
+         height: 400px;
+        }
+        #menuTd{
+         width: 85%;
+        }
+       /*===============================================================================*/
+       #contentTable{
+ 
+         }
+       #SetpopUpSlideMenu{
+         width: 15%;
+       }
+       #outline {
+             width: 170px;
+             background-color: #C32033;
+             /* 아래 회색부 합치기위한 마진 안남기기 */
+             margin: 8px 8px 0px 8px; 
+ 
+         }
+ 
+         #headerTable {
+             width: 100%;
+         }
+ 
+         /* 장바구니 옆 숫자(갯수) */
+ 
+         #shoppingBasketSideSize {
+             height: 40px;
+             width: 40px;
+             text-align: start;
+             transform: translateY(7.05px);
+         }
+ 
+         #shoppingBasketSideTxt {
+             width: 30px;
+             font-size: 20px;
+             border: #C32033;
+             border-radius: 5px;
+             background-color: #9b1424;
+             text-align: center;
+             color: white;
+         }
+ 
+         /* 장바구니 */
+         #shoppingBasketImg {
+             width: 100%;
+         }
+ 
+         #shoppingBasketTxt {
+             font-weight: bold;
+             font-size: 25px;
+             color: white;
+         }
+ 
+ 
+ 
+         /* 화살표,전체삭제, 장바구니  */
+         #basketInTable {
+             width: 100%;
+         }
+ 
+         /* 화살표 */
+         #arrowDownImg {
+             width: 40%;
+             transform: rotate(180deg);
+         }
+ 
+         #arrowUpImg {
+             width: 40%;
+         }
+ 
+         /* 전체삭제 */
+         #deleteAll {
+             width: 100%;
+             padding: 3px;
+         }
+ 
+         #deleteAllBtn {
+             width: 90%;
+             height: 70px;
+             border-radius: 15px;
+             font-size: 20px;
+             background-color: #C32033;
+             border: 3px solid white;
+             color: white;
+             font-weight: bold;
+         }
+ 
+         /* 장바구니 목록 */
+         .shopping {
+             width: 100%;
+             padding: 4.7px;
+         }
+ 
+         #shoppingBtn {
+             width: 90%;
+             height: 140px;
+             border-radius: 25px;
+             font-size: 16.45px;
+             background-color: #9b1424;
+             border: 4.23px solid rgb(197, 27, 27);
+             color: white;
+             font-weight: bold;
+         }
+ 
+         #shoppingImg {
+             opacity: 0.5;
+             width: 40%;
+         }
+         #cupponTable{
+             width: 100%;
+         }
+ 
+         /* 쿠폰, 스템프  */
+         .cuppon {
+             width: 100%;
+             height: 206.8px;
+         }
+ 
+         /* 스템프  */
+         #stempBtn,
+         #cupponBtn {
+             width: 90%;
+             height: 140px;
+             border-radius: 25px;
+             font-size: 16.45px;
+             background-color: white;
+             border: 4.23px solid white;
+             color: white;
+             font-weight: bold;
+         }
+ 
+         #btnStempTable,
+         #btnCupponTable {
+             margin: 0 auto;
+             width: 100%;
+             height: 22px;
+             border-radius: 25px;
+         }
+ 
+         #cupponImg {
+             width: 60%;
+         }
+ 
+         #stempImg {
+             width: 35%;
+         }
+ 
+         #cupponTxt,
+         #stempTxt {
+             font-size: 20px;
+             color: #C32033;
+             font-weight: 900;
+         }
+ 
+         /* 총 결제  */
+         #totalPayTable {
+             width: 100%;
+         }
+ 
+         #billTxt {
+             height: 13px;
+             font-weight: 900;
+             font-size: 15px;
+             color: white;
+         }
+ 
+         #bill {
+             font-weight: 900;
+             font-size: 22px;
+             color: white;
+         }
+         #billSpace{
+             height: 0px;
+         }
+         
+         /* 결제 버튼 위치 */
+         #payTable {
+             background-color: #786E6C;
+             width: 170px;
+             height: 170px;
+             margin: 0px 8px 8px 8px;
+         }
+         #payBtnSet{
+             width: 100%;
+             height: 100%;
+         }
+         #payBtn{
+             background-color: #786E6C;
+             border-color: #786E6C;
+             width: 100%;
+             height: 100%;
+         }
+         #btnPayTable{
+             margin: 0 auto;
+         }
+ 
+         #payImgSet {}
+ 
+         #payImg {opacity: 20%;}
+ 
+         #payTxt {
+             font-size: 25px;
+             color: #ffffff;
+         }
+         table,
+         td,
+         tr {
+             border-collapse: collapse;
+             border: 1px solid aquamarine;
+         }
+ 
+         html,
+         body {
+             text-align: center;
+         }
+    </style>
+</head>
+
+<body>
+         
+    <table id="outline">
+        <tr>
+            <td>
+                <table id="headerTable">
+                    <tr>
+                        <td id="shoppingBasketSideSize"></td>
+                        <td></td>
+                        <td id="shoppingBasketSideSize">
+                            <input type="text" id="shoppingBasketSideTxt" value="00">
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td id="shoppingBasket">
+                            <img id="shoppingBasketImg" src="img/cart.svg">
+                        </td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td id="shoppingBasketTxt" colspan="3">장바구니</td>
+                    </tr>
+                </table>
+                <table id="basketInTable">
+                    <!-- 위쪽 화살표 -->
+                    <tr>
+                        <td class="arrow">
+                            <img id="arrowUpImg" src="img/arrowShop.svg">
+                        </td>
+                    </tr>
+                    <!-- 전채 삭제 -->
+                    <tr>
+                        <td id="deleteAll">
+                            <button id="deleteAllBtn">전체삭제</button>
+                        </td>
+                    </tr>
+                    <!-- 고른 메뉴 표 -->
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="shopping">
+                            <button id="shoppingBtn">
+                                <img id="shoppingImg" src="img/cart.svg">
+                            </button>
+                        </td>
+                    </tr>
+                    <!-- 아래쪽 화살표 -->
+                    <tr>
+                        <td>
+                            <img id="arrowDownImg" src="img/arrowShop.svg">
+                        </td>
+                    </tr>
+
+                </table>
+                <table id="cupponTable">
+
+                    <!-- 스탬프 -->
+                    <tr>
+                        <td class="cuppon">
+                            <button id="stempBtn">
+                                <table id="btnStempTable">
+                                    <tr>
+                                        <td>
+                                            <img id="stempImg" src="img/stemp.png">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td id="stempTxt">
+                                            스템프 사용
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </td>
+                    </tr>
+
+
+                    <!-- 메뉴 교환권 -->
+                    <tr>
+                        <td class="cuppon">
+                            <button id="cupponBtn">
+                                <table id="btnCupponTable">
+                                    <tr>
+                                        <td>
+                                            <img id="cupponImg" src="img/COUPON.svg">
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td id="cupponTxt">
+                                            메뉴 교환권
+                                        </td>
+                                    </tr>
+                                </table>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+                <table id="totalPayTable">
+                    <tr>
+                        <td id="billTxt">총 결제금액</td>
+                    </tr>
+                    <tr>
+                        <td id="bill">0원</td>
+                    </tr>
+                    <tr>
+                        <td id="billSpace"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    
+    <table id="payTable">
+        <tr>
+            <td id="payBtnSet">
+                <button id="payBtn"type="button" onclick="location.href='popUpPayMent01.html'" >
+                    <table id="btnPayTable">
+                        <tr>
+                            <td id="payImgSet">
+                                <img id="payImg" src="img/pay.svg">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id="payTxt">결제하기</td>
+                        </tr>
+                    </table>
+                </button>
+            </td>
+        </tr>
+    </table>
+
+
+            </td>
+        </tr>
+    </table>
+       
+
+
+    <script>
+        let num = 50;
+        let speed = 3;
+        let switcher = true;        
+        let opt = document.getElementById('payImg');
+        let opt2= document.getElementById('payTxt');
+        
+    
+        function breath(){
+            
+                    if(num>=90){ 
+                    switcher=true
+                }
+                else if (num<=10 ){
+                    switcher=false;
+                }
+                if(switcher){
+                    num = num - speed;
+                }else{
+                    num = num + speed;
+                }
+            opt.style.opacity = `${num/100}`;
+            opt2.style.opacity = `${num/100}`;
+    
+                console.log(num/100);
+        }
+        let auto = setInterval(breath,100)
+        
+    
+    </script>
+    
+</body>
+
+</html>

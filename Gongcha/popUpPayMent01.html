@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #outLine {width: 1080px;height: 1920px;}
+        /*--------------------------------------------------*/
+        #headerTable {width: 100%;font-size: 25px;}
+        #oderConformHeader {
+            color: #C32033;
+            text-align: left;
+            margin-left: 10px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    #oderConformSub{
+    text-align: left;
+    margin-left: 20px;
+    font-weight:900;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+        #headerLine {
+            color: ghostwhite;
+            width: 99.9%;
+        }
+        #orderSpaceSet{width: 100%;height: 1050px;}
+        /*-------------------------------------------------------------------*/
+        .orderListSet{height: 20%;}
+        .orderListTable{width: 100%;height: 200px;margin: auto;}
+        .cancleBtnSet{ width: 100px;}
+        .cancleBtn{vertical-align:top;color: #C32033;font-weight: bold;font-size: 43px;
+            width: 50px;background-color: #fff;border: none;}
+        .orderImgSet{text-align: center;  height: 150px; width: 250px;}
+        .orderImg{margin-left:60px; margin-right: 70px; text-align: right; width: 110px; height: auto;}
+        
+        .orderTxt{color: #C32033;font-weight: bold;font-size: 45px; }
+        .orderPay{text-align: left;font-size: 40px; font-weight: 600; width: 600px;}
+        
+        .orderSubPMBtn{background-color: #C32033; border-radius: 10px;color: white;width: 75px;height: 75px;}
+        .orderSubPMBtnTxt{font-size: 60px;}
+
+        .orderSubPMBtnSet{width: 100px; margin: 0 auto;text-align: center;}
+        .orderSubPMCount{font-size: 35px; font-weight: bold;}
+        .orderSubPMEditBtnSet{text-align: right;}
+        .orderSubPMEditBtn{font-size: 45px; font-weight: bold; color: white;background-color: #C32033;
+             border-radius: 10px;width: 200px;height: 100px;margin-left: 10px;}
+        .orderListSetTxt{text-align: left;font-size: 40px;color: #C32033;font-weight: bold; height: 70px;
+             background-color: #f0f0f0;padding-left: 15px;}
+
+
+        #oL_1{display: inline-flexbox;}
+        #oL_2{display: none;}
+        #oL_3{display: none;}
+        #oL_4{display: none;}
+        /*-------------------------------------------------------------------*/
+        #list {width: 100%;}
+        #emptySpace {height: 100px;width: 100%;}
+        #emptySpace2 {height: 50px;width: 100%;}
+        #slideSpace {width: 100%;}
+        #pre_area {text-align: left;}
+        #next_area {text-align: right;}
+
+        #preNextBtnTable{width: 100%;       }
+        .PRE_NEXT_Button {width: 250px;height: 100px;background-color:
+             white;border-radius: 15px;border: 3px solid #999;}
+        .PRE_NEXT_Txt {font-size: 35px;font-weight: bold;}
+
+        #totalPay{width: 100%; height: 150px;}
+        #mainPay {font-weight: bold;font-size: 50px;color: #C32033;text-align: left;}
+        #optionalPay {font-weight: bold;color: #C32033;font-size: 50px;text-align: right;}
+        #m_M {text-align: left;}
+        #m_P {text-align: right;}
+        #btn_cancle_menu_table {width: 100%;height: 200px;}
+        .menuSetArea {width: 50%;text-align: center;}
+        .lastButton {font-size: 40px;font-weight: bold;color: white;}
+        .btn_cancle_menu {width: 90%;height: 80%;background-color: #C32033;
+            border-radius: 15px;border: 3px solid #e93046;}
+        #preBtn{display: inline-table; }
+        #nxtBtn{display: inline-table;}
+
+        /*-------------------------------------------------------------------*/
+        /*  공통  */
+        table,
+        tr,
+        td {
+            border-collapse: collapse;
+            /* border: 1px solid aqua; */
+        }
+
+        body,
+        html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        /* 버튼 박스 */
+        button {
+            cursor: pointer;
+        }
+
+        /* ---------------슬라이드박스-------------*/
+        #dot {
+            text-align: center;
+        }
+
+        #dot>ul>li {
+            display: inline-block;
+
+            border-radius: 30px;
+            width: 30px;
+            height: 30px;
+            margin: 20px;
+            vertical-align: middle;
+            background: gray;
+            cursor: pointer;
+        }
+
+        #dot>ul li a {
+            display: block
+        }
+
+        #dot ul li.on {
+            background: #C32033;
+        }
+    </style>
+</head>
+
+
+<!-------------------------------------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------------------------------------->
+
+
+<body>
+
+    <table id="outLine">
+        <tr>
+            <td>
+                <!-- 서브메뉴 해더 -->
+                <table id="headerTable">
+                    <tr>
+                        <td>
+                            <h1 id="oderConformHeader"> 01. 주문확인</h1>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <h2 id="oderConformSub">주문내역을 확인해주세요.</h2>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><hr id="headerLine"></td>
+                    </tr>
+                </table>
+                <!-- 서브메뉴 해더 끝-->
+                
+                <table id="emptySpace">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+                <!-- 주문 리스트-->
+                <table id="orderSpaceSet">
+                    <tr>
+                        <td class="orderListSet">
+                            <table id="oL_1"class="orderListTable">
+                                <tr>
+                                    <td class="cancleBtnSet">
+                                        <span ><button class="cancleBtn">─</button></span>
+                                    </td>
+                                    <td rowspan="3" colspan="5" class="orderTxt">
+                                        딸기쥬얼리밀크티
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td rowspan="3" class="orderImgSet">
+                                        <img class="orderImg" src="img/season_menu/2023seson menu1.jpg">
+                                    </td>
+                        
+                                </tr>
+                                <tr>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="orderPay">4200원</td>
+                                    <td class="orderSubPMBtnSet">
+                                        <button class="orderSubPMBtn">
+                                            <span class="orderSubPMBtnTxt">─</span>
+                                        </button>
+                                    </td>
+                                    <td class="orderSubPMBtnSet">
+                                        <span class="orderSubPMCount">01</span>
+                                    </td>
+                                    <td class="orderSubPMBtnSet">
+                                        <button class="orderSubPMBtn">
+                                            <span class="orderSubPMBtnTxt">+</span>
+                                        </button>
+                                    </td>
+                                    <td class="orderSubPMEditBtnSet">
+                                        <button class="orderSubPMEditBtn">수정</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="orderListSetTxt" colspan="7">
+                                        옵션 : COLD(포장), Regular, 50%
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="orderListSet">
+                          
+                        </td>
+                    </tr>    
+                    <tr>
+                        <td class="orderListSet">
+                           
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="orderListSet">
+                           
+                        </td>
+                    </tr>
+                </table>
+                <!-- 주문 리스트 끝 -->
+                <table id="emptySpace">
+                    <tr>
+                        <td></td>
+                    </tr>
+                </table>
+                <!-- 리스트 메뉴 -->
+                <table id="list"">
+
+        <tr>
+            <td>
+                <table id="preNextBtnTable">
+                 <tr>
+                       
+            <td id="pre_area">
+                <button class="PRE_NEXT_Button">
+                    <div class="PRE_NEXT_Txt">이전</div>
+                </button>
+            </td>
+
+            <td id="slideSpace">
+                <div id="dot">
+                    <ul>
+                        <li class="on"><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                        <li><a href="#"></a></li>
+                    </ul>
+                </div>
+            </td>
+            <td id="next_area">
+                <button class="PRE_NEXT_Button">
+                    <div class="PRE_NEXT_Txt">다음</div>
+                </button>
+            </td>
+                 </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td id="emptySpace2"></td>
+        </tr>
+        <tr>
+            <td>
+                <hr>
+
+                <table id="totalPay">
+                        <tr>
+                            <td id="mainPay">총 결제 금액</td>
+                            
+                            <td id="optionalPay">4200원</td>
+                            
+                        </tr>
+                </table>
+                        
+                <hr>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+
+                <table id="btn_cancle_menu_table">
+                    <tr>
+                        <td class="menuSetArea">
+                            <button class="btn_cancle_menu" id="preBtn" type="button" onclick="location.href='2.season_menu.html'" >
+                                <div class="lastButton" >이전</div>
+                            </button>
+
+                        </td>
+                        <td class="menuSetArea">
+                            <button class="btn_cancle_menu" id="nxtBtn" type="button" onclick="location.href='popUpPayMent02.html'" >
+                                <div class="lastButton">다음</div>
+                        </td>
+                    </tr>
+                </table>
+                
+            </td>
+        </tr>
+    </table>
+
+    </td>
+    </tr>
+    </table>
+
+    <script>
+        let total = 0;
+        let side_purl = 500;
+    </script>
+
+
+</body>
+
+</html>

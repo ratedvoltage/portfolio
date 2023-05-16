@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        /* header */
+        #top-header {
+            margin: 0 auto;
+            text-align: right;
+            width: 600px;
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 40px;
+            font-family: 'Tilt Warp';
+        }
+
+        table, tr, td {
+            /* border: 1px solid black; */
+            border-collapse: collapse;
+        }
+
+        /* header */
+        #header {
+            margin: 0 auto;
+            width: 600px;
+        }
+        #time {
+            font-size: 40px;
+            color: #333333;
+            height: 100px;
+            vertical-align: bottom;
+            text-align: right;
+        }
+        #today {
+            color: #C32033;
+            height: 50px;
+            vertical-align: top;
+            text-align: right;
+        }
+
+        /* nav */
+        #nav {
+            margin: 0 auto;
+            width: 600px;
+            height: 80px;
+            border-bottom: 1px solid #333333;
+        }
+        #navEmpty {
+            width: 300px;
+        }
+        .navBtn {
+            background-color: white;
+            border-style: none;
+            cursor: pointer;
+            font-size: 20px;
+
+        }
+
+        /* content */
+        #content {
+            margin: 0 auto;
+            width: 600px;
+        }
+        .dayOfWeek {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+            width: 140px;
+            height: 50px;
+        }
+        .day {
+            text-align: center;
+            vertical-align: middle;
+            height: 50px;
+            padding: 10px;
+
+        }
+    </style>
+
+</head>
+<body>
+
+    <table id="top-header">
+        <tr>
+            <td style="text-align: right;height: 100px;">
+                <a href="_00_index.html">
+                    <img src="images/home.png" style="width: 60px;">
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <table id="header">
+        <tr>
+            <td id="time"></td>
+        </tr>
+        <tr>
+            <td id="today"></td>
+        </tr>
+    </table>
+
+    <table id="nav">
+        <tr>
+            <td>
+                <span id="year"></span>년 <span id="month"></span>월
+            </td>
+            <td id="navEmpty">
+            </td>
+            <td><button class="navBtn" onclick="beforeMonth()">▽</button></td>
+            <td><button class="navBtn" onclick="afterMonth()">△</button></td>
+        </tr>
+    </table>
+
+    <table id="content">
+        <tr>
+            <td id="contentTd"></td>
+        </tr>
+    </table>
+
+    <script>
+
+
+        let date = new Date();
+        let thisYear = date.getFullYear();
+        let thisMonth = date.getMonth();
+
+
+        setTime();
+        setInterval(setTime, 100);
+
+        setDate(date, thisYear, thisMonth);
+        setCalendar(thisYear, thisMonth);
+        //-------------------------------------------------------------
+        
+        // 리얼타임지정
+        function setTime() {
+            document.querySelector("#time").innerText = new Date().toLocaleTimeString();
+        }
+
+        
+        function setDate(today, thisYear, thisMonth) {
+            let date = today.getDate();             // 날짜
+            let dayOfWeek = today.getDay();         // 요일
+
+            let dayList = ["일", "월", "화", "수", "목", "금", "토"];
+
+            document.querySelector("#today").innerHTML=
+            `${thisYear}년 ${thisMonth+1}월 ${date}일 ${dayList[dayOfWeek]}요일`;
+        }
+
+        function getTable() {   //다른 달 보고시픙면 돌려야
+            let $table = document.createElement("table");
+            $table.id = "calendar";
+            for(let i=0; i<7; i++) {
+                let $tr = document.createElement("tr");
+                for(let j=0; j<7; j++) {
+                    let $td = document.createElement("td");
+                    $tr.append($td);
+
+                    if(i == 0) {    //첫번째 줄 요일 자리
+                        $td.classList = "dayOfWeek";
+
+                    } else {
+                        $td.classList = "day";
+                    }
+
+                    if(j == 0) {        //일요일
+                        $td.style.color = "#C32033";
+                    } else if(j == 6) {     //토요일
+                        $td.style.color = "#999";
+                    }
+                }
+                $table.append($tr);
+            }
+            return $table;
+        }
+
+        function setCalendar(thisYear, thisMonth) {
+
+            let date = new Date();
+            let thisDate = date.getDate();  //오늘 일수
+
+            let $content = document.querySelector("#contentTd");
+            if($content.hasChildNodes()) {
+                $content.removeChild($content.firstChild);
+            }
+
+            // 달력을 표시하기 위한 테이블 생성
+            let $table = getTable();
+            $content = document.querySelector("#contentTd");
+            $content.append($table);
+
+            // 오늘 기준으로 년과 월 화면에 표시
+            let $thisYear = document.querySelector("#year");
+            let $thisMonth = document.querySelector("#month");
+            $thisYear.innerText = thisYear;
+            $thisMonth.innerText = thisMonth + 1;
+
+            // 작년도까지 day 구하기
+            let lastYear = thisYear - 1;
+            let total = lastYear * 365;
+
+            // 작년도까지 윤년 추가하기
+            total += parseInt(lastYear / 400);
+            total -= parseInt(lastYear / 100);
+            total += parseInt(lastYear / 4);
+
+            // 올해 지난달(2월)까지의 day 구하기
+            // 올해가 윤년인지 확인해 윤년이면 2월달을 29일로 변경하기
+            let monthList = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+            if(thisYear % 400 == 0) {
+                monthList = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            } else if(thisYear % 100 != 0 && thisYear % 4 == 0) {
+                monthList = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            }
+            for(let i=0; i<thisMonth; i++) {
+                total += monthList[i];
+            }
+
+            // 이번달을 표시하기 위해 1을 더한다.
+            total += 1;
+
+            // 이번달의 시작 요일 구하기
+            let dayList = ["일", "월", "화", "수", "목", "금", "토"];
+            let dayIndex = total % 7;
+
+            // 요일 화면에 표시하기
+            for(let i=0; i<dayList.length; i++) {
+                $table.children[0].children[i].textContent = dayList[i];
+            }
+
+            console.log("오늘날짜!" + thisDate);
+            let row = 1;
+            for(let i=0; i<monthList[thisMonth]; i++) {
+                let index = (i + dayIndex) % 7;
+                $table.children[row].children[index].textContent = i + 1;
+                if(i + 1 == thisDate && date.getMonth() == thisMonth) {
+
+                    $table.children[row].children[index].style.backgroundColor = " #f39090";
+                }
+                if(index == 6) {
+                    row += 1;
+                }
+            }
+        }
+
+        function beforeYear() {
+            $thisYear = document.querySelector("#year");
+            $thisMonth = document.querySelector("#month");
+
+            let year = Number($thisYear.innerText) - 1;
+            let month = Number($thisMonth.innerText) - 1;
+
+            setCalendar(year, month);
+        }
+
+        function afterYear() {
+            $thisYear = document.querySelector("#year");
+            $thisMonth = document.querySelector("#month");
+
+            let year = Number($thisYear.innerText) + 1;
+            let month = Number($thisMonth.innerText) - 1;
+
+            setCalendar(year, month);
+        }
+
+        function beforeMonth() {
+            $thisYear = document.querySelector("#year");
+            $thisMonth = document.querySelector("#month");
+
+            let year = Number($thisYear.innerText);
+            let month = Number($thisMonth.innerText) - 2;
+            if(month < 0) {
+                year -= 1;
+                month = 11;
+            }
+
+            setCalendar(year, month);
+        }
+
+        function afterMonth() {
+            $thisYear = document.querySelector("#year");
+            $thisMonth = document.querySelector("#month");
+
+            let year = Number($thisYear.innerText);
+            let month = Number($thisMonth.innerText);
+            if(month > 11) {
+                year += 1;
+                month = 0;
+            }
+
+            setCalendar(year, month);
+        }
+
+        //------------------------------------------------------------------------
+
+
+    </script>
+
+</body>
+</html>

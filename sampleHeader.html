@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* [subTitle] */
+    @font-face {
+        font-family: 'NanumSquareNeo-Variable';
+        src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+        font-weight: normal;
+        font-style: normal;
+    }
+
+        /* 공차 폰트 [title,] */
+        @font-face {
+    font-family: 'NotoSerifKR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NotoSerifKR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+        table,tr,td{
+            border-collapse:collapse;
+            border: 1px solid aqua;
+        }
+        #header-header{
+            margin: 0 auto;
+            border: 1px solid black;
+            width: 100%;
+        }
+        .header-menuSet{Float:right;}
+        #header-menu,#header-menu2{height: 24px; Float:right;}
+        .header-setLJM{width: auto;}
+        #header-setGithub{width: auto;}
+
+        #header-title{font-size:50px;font-family: 'NotoSerifKR';display: inline-table;height: 350px;}
+        #header-title1{color: #9f9c9d;}
+        #header-title2{color: #C32033;}
+        #header-subTitle{color: #C32033;font-size: 25px;font-family: 'NanumSquareNeo-Variable';}
+    </style>
+</head>
+<body>
+
+    <!--
+        button 기능
+        (1) 페이지 이동 : ~page
+        (2) 페이지 이동 + 데이터 처리 : ~pro (=process)
+        (3) 이벤트처리  : ~이벤트명(click,input,blur,...)
+
+
+    -->
+
+    <table id = "header-header">
+        <tr>
+            <td class="header-menuSet" >
+                <!-- 로그아웃 상태 -->
+                <!-- <table id="header-menu">
+                    <tr >
+                        <td class="header-setLJM">
+                            <button id="btn-indexPage">메인메뉴</button>
+                        </td>
+                        <td class="header-setLJM">
+                            <button id="btn-memberJoinPage">회원가입</button>
+                        </td>
+                        <td class="header-setLJM">
+                            <button id="btn-memberLoginPage">로그인</button>
+                        </td>
+                        <td id="header-setGithub"></td>
+                    </tr>
+                </table> -->
+                <!-- 로그인 상태 -->
+                <table id="header-menu2">
+                    <tr>
+                        <!-- <td>
+                            <button id="btn-indexPage">메인메뉴</button>
+                        </td>
+                        <td>
+                            <button id="btn-memberListPage">회원 전체목록</button>
+                        </td>
+                        <td>
+                            <button id="btn-memberLogoutPro">로그아웃</button>
+                        </td>
+                        <td>
+                            <button id="btn-boardListPage">게시판</button>
+                        </td>
+                        <td>
+                            <button id="btn-boardListPaging">게시판 페이징</button>
+                        </td> -->
+                        <td id="header-setGithub"></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <table id="header-title">
+                    <td>
+                        <span id="header-title1">FRONT-</span><span id="header-title2">END</span> DEVELOPER
+                        <div id="header-subTitle">/문창현의 포트폴리오</div>
+                    </td>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <hr style="background-color: #C32033; height: 20px;">
+
+</body>
+</html>

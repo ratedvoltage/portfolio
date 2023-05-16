@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table,tr,td{
+            border-collapse:collapse;
+            border: 1px solid aqua;
+        }
+        #content-outline{
+            text-align: center;
+            width: 100%;
+        }
+        #content-header{
+            text-align: center;
+            margin : 0 auto;
+            width : 100%;
+            background-color: #E4DCD2;
+            box-shadow:3px 3px 3px 3px #cecece ;
+            margin-bottom: 10px;
+        }
+        .content-content{
+            margin : 0 auto;
+            background-color: #E4DCD2;
+        }
+        .content-contentSet{
+            width:100%;
+            background-color: #E4DCD2;
+            box-shadow:3px 3px 3px 3px #cecece ;
+            margin-bottom: 10px;
+        }
+        .content-contentSettd{
+            width:10000px;
+            background-color: #E4DCD2;
+        }
+        #content-headerTitle,.content-cTitle{
+            height: 200px;
+        }
+        .content-headerTitle,.content-contentTitle{
+            font-size: 30px;
+            font-family: 'NotoSerifKR';
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        #content-headerTitle1,#content-contentTitle1{color: #666666; box-shadow:0px 6px 3px -3px #666666 ;}
+        #content-headerTitle2,#content-contentTitle2{color: black;}
+        #content-headerTitle3,#content-contentTitle3{color: #C32033; box-shadow:0px 6px 3px -3px #666666 ;}
+        #content-headerSubTitle,.content-contentSubTitle{font-size: 18px; font-family:'NanumSquareNeo-Variable';}
+        /* #983b43 */
+        #content-headerTeam{
+            background-color: #C32032;
+            line-height:400px;
+        }
+        #teamImg{
+            vertical-align:middle;
+        }
+        #hrefSet{
+        }
+        .content-contentTD2{
+            text-align: center;
+        }
+        .content-contentcontentTable{
+
+        }
+        .content-contentcontent{
+            width: 300px;
+            height: 330px;
+        }
+        .content-space{
+            width: 30px;
+            height: 30px;
+        }
+
+        </style>
+</head>
+<body>
+    
+    <table id = "content-outline">
+        <tr>
+            <td>
+                <table id = "content-header">
+                    <tr>
+                        <td id="content-headerTitle">
+                            <span class="content-headerTitle" id="content-headerTitle1">TEAM</span>
+                            <span class="content-headerTitle" id="content-headerTitle2">Gong cha</span>
+                            <span class="content-headerTitle" id="content-headerTitle3">PROJECT</span>
+                            <div id="content-headerSubTitle">팀원들과 함께 작업한
+                                <span style="color:#C32033">공차</span> 프로젝트 입니다.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td id="content-headerTeam">
+                            <a href = "Gongcha/1.home.html">
+                                <div id = "hrefSet">
+                                    <img src="./images/stemp.png" id="teamImg">
+                                </div>
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+                <table calss="content-contentSet">
+                    <tr>
+                        <td class="content-contentSettd">
+                            <table class="content-content">
+                                <tr>
+                                    <td class="content-cTitle">
+                                        <span class="content-contentTitle" id="content-contentTitle1">Personal</span>
+                                        <span class="content-contentTitle" id="content-contentTitle2">JS DOM</span>
+                                        <span class="content-contentTitle" id="content-contentTitle3">PROJECT</span>
+                                        <div class="content-contentSubTitle">JavaScript DOM 기반의 개인 프로젝트 모음 자료입니다.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-contentTD2">
+                                        <table calss="content-contentcontentTable">
+                                            <tr>
+                                                <td class="content-contentcontent"></td>
+                                                <td class="content-space"></td>
+                                                <td class="content-contentcontent"></td>
+                                                <td class="content-space"></td>
+                                                <td class="content-contentcontent"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="content-space"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="content-contentcontent"></td>
+                                                <td class="content-space"></td>
+                                                
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table class="content-content">
+                                <tr>
+                                    <td class="content-cTitle">
+                                        <span class="content-contentTitle" id="content-contentTitle1">Personal</span>
+                                        <span class="content-contentTitle" id="content-contentTitle2">게임 프로젝트</span>
+                                        <span class="content-contentTitle" id="content-contentTitle3">PROJECT</span>
+                                        <div class="content-contentSubTitle">자바스크립트를 활용해 여러 비동기 게임 예제를 구현하였습니다.</div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-contentTD2">
+                                        <table calss="content-contentcontentTable">
+                                            <tr>
+                                                <td class="content-contentcontent"></td>
+                                                <td class="content-space"></td>
+                                                <td class="content-contentcontent"></td>
+                                                <td class="content-space"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="content-space"></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="content-space"></td>
+                                                <td class="content-space"></td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <hr style="background-color: #C32033; height: 20px;">
+
+    <hr style="background-color: #C32033; height: 20px;">
+
+    <script>
+        let $c_ccList = document.querySelectorAll(".content-contentcontent");
+        for(let i = 0;i<$c_ccList.length;i++){
+            $c_ccList[i].addEventListener("mouseenter",slideIn);
+            $c_ccList[i].addEventListener("mouseleave",slideOut);
+        }
+
+        function slideIn(e){
+            for(let i = 0;i<$c_ccList.length;i++){
+                if(e.target == $c_ccList[i]){
+                    $c_ccList[i].style.color = "#C32033";
+                }
+            }
+        }
+        function slideOut(){
+
+        }
+    </script>
+</body>
+</html>

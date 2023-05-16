@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+             @font-face {
+    font-family: 'LINESeedKR-Bd';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'OTWelcomeRA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareNeo-Variable';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}   
+
+    #all {
+        width: 1080px;
+        height: 1920px;
+        margin: 0 auto;
+        }
+    /*header start*/
+    #header {
+        width: 1080px;
+        margin: 0 auto;
+    }
+    #headerImg  {
+        text-align: center;
+        width: 1080px;
+        height: 100px;
+    }
+    /* content */
+    #logo {
+        margin: 0 auto;
+        padding: 20px;
+    }
+    #logoImg{
+        text-align: center;
+        height: 500px;
+        padding: 15px;
+    }
+    #logingTable{
+        padding-top: 80px;
+        margin:0 auto;
+        text-align: center;
+    }
+    #login{
+        font-family: 'NanumSquareNeo-Variable';
+        text-align: center;
+        font-size: 45px;
+        font-weight: bold;
+        padding :10px;
+        
+    }
+    .loginMenu{
+        font-family: 'NanumSquareNeo-Variable';
+        font-size: 25px;
+        width: 150px;
+        padding: 10px;
+        text-align: left;
+    }
+    .inputSpace {
+        padding: 25px;
+    }
+    .loginInput{
+        font-family: 'NanumSquareNeo-Variable';
+        font-size: 20px;
+        width: 300px;
+        padding: 10px;
+        padding-left: 10px;
+        color: rgb(197, 196, 196);
+        border: 1px solid gainsboro;
+        height: 30px;
+    }
+    #loginBtn{
+        width: 300px;
+        height: 80px;
+        font-size: 30px;
+        font-family: 'NanumSquareNeo-Variable';
+        background-color: #C32033;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+    }
+    #loginInfo {
+        padding: 25px;
+        color: lightslategrey;
+        font-family: 'NanumSquareNeo-Variable';
+        text-align: center;
+        font-size: 20px;
+    }
+    #join{
+        margin:0 auto;
+    }
+    .joinInputA{
+        width: 150px;
+        height: 170px;
+    }
+    .joinInputB{
+        font-family: 'OTWelcomeRA';
+        font-size: 18px;
+        width: 400px;
+        height: 200px;
+        color: rgb(86, 86, 86);
+    }
+    #joinImg{
+        width: 110px;
+        text-align: center;
+    }
+    #joinBtn{
+        font-family: 'OTWelcomeRA';
+        width: 380px;
+        padding: 15px;
+        font-size: 15px;
+        background-color: #ffffff;
+        border: 1px solid #C32033;
+        border-radius: 5px;
+        color: grey;
+        cursor: pointer;
+    }
+    #admin {
+        margin: 0 auto;
+        margin-right:  10px;
+    }
+    #adminBtn {
+        font-family: 'OTWelcomeRA';
+        font-size: 16px;
+        width: 200px;
+        height: 60px;
+        margin: 30px;
+        text-align: center;
+        background-color: rgb(201, 199, 199);
+        border: 1px solid rgb(219, 219, 219);
+        padding:20px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+   
+    </style>
+</head>
+<body>
+    <div id="all">
+    <!-- header -->
+    <table id="header">
+        <tr>
+            <td id="headerA">
+                <img id="headerImg" src="img/home/happy.jpg">
+            </td>
+        </tr>
+    </table>
+   <!-- content -->
+    <table id="logo">
+        <tr>
+            <td>
+                <img id="logoImg" src="img/logo.jpg">
+            </td>
+        </tr>
+    </table>
+    <table id="logingTable">
+        <tr>
+            <td colspan="2" id="login">
+                로그인
+            </td>
+        </tr>
+        <tr>
+            <td class="loginMenu">아이디 : </td>
+            <td class="inputSpace">
+                <input type="text" class="loginInput" placeholder="아이디를 입력하세요" >
+            </td>
+        </tr>
+        <tr>
+            <td class="loginMenu">비밀번호 : </td>
+            <td class="inputSpace">
+                <input type="password" class="loginInput" placeholder="비밀번호를 입력하세요">
+            </td>
+        </tr>
+        <tr>
+            <td class="inputSpace" colspan="2">
+                <button id="loginBtn">로그인</button>
+            </td>
+        </tr>
+        <tr>
+            <td id="loginInfo" colspan="2">
+                로그인 후 멤버십을 적립하세요.
+            </td>
+        </tr>
+    </table>
+    <table id="join">
+        <tr>
+            <td class="joinInputA">
+                <img id=joinImg src="img/join.png">
+            </td>
+            <td class="joinInputB" onclick="joinpage()">
+                <p>아직 공차회원이 아니신가요?</p>
+                <P>회원 가입을 통해 공차만의 특별한 혜택을 누리세요!</P>
+                <button id="joinBtn">회원 가입하기</button>
+            </td>
+        </tr>
+        <tr>
+            <td class="joinInputA">
+                <img id=joinImg src="img/password.png">
+            </td>
+            <td class="joinInputB">
+                <p>아이디 / 비밀번호를 잊어버리셨나요?</p>
+                <P>정보인증을 통해 찾으실 수 있습니다.</P>
+                <button id="joinBtn" onclick="searchIdPage()">아이디 / 비밀번호 찾기</button>
+            </td>
+        </tr>
+    </table>
+   <table id="admin">
+    <tr>
+        <td id="adminSpace">
+            <button id="adminBtn">관리자 로그인</button>
+        </td>
+    </tr>
+   </table>
+    </div>
+    <script>
+        function joinpage(){
+            location.href="join.html";
+        }
+        let input = document.querySelectorAll(".loginInput");
+        input[0].addEventListener("focus", changeid)
+        input[0].addEventListener("blur", changebackid)
+        input[1].addEventListener("focus", changepw)
+        input[1].addEventListener("blur", changebackpw)
+
+        function changeid(){
+            input[0].style.backgroundColor = "black";
+            input[0].style.color = "white";
+
+        }
+        function changepw(){
+            input[1].style.backgroundColor = "black";
+            input[1].style.color = "white";
+        }
+        function changebackid(){
+            input[0].style.backgroundColor = "white";
+            input[0].style.color = "gray";
+
+        }
+        function changebackpw(){
+            input[1].style.backgroundColor = "white";
+            input[1].style.color = "gray";
+        }
+        function searchIdPage(){
+            location.href = "searchId_Pw.html";
+        }
+    </script>
+</body>
+</html>

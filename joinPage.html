@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Daum 우편번호 -->
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+    <style>
+        #top-header {
+            margin: 0 auto;
+            text-align: right;
+            width: 1200px;
+            font-size: 50px;
+            font-weight: bold;
+            line-height: 40px;
+            font-family: 'Tilt Warp';
+        }           
+
+        /* header */
+        #headerTable1 {
+            margin: 0 auto;
+            text-align: center;
+            width: 1280px;
+        }
+        .headerMenu {
+            font-size: 12px;
+            width: 60px;
+            height: 50px;
+        }
+        #headerSpace {
+            width: 1100px;
+        }
+        #headerTable2 {
+            margin: 0 auto;
+            text-align: center;
+            width: 1280px;
+        }
+        .logoImg {
+            width: 120px;
+        }
+        
+        /* nav */
+        #navTable {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .navMenu {
+            width: 200px;
+            height: 50px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .searchInput {
+            width: 250px;
+            height: 30px;
+        }
+        .searchImg {
+            width: 35px;
+            cursor: pointer;
+        }
+
+        /* contents */
+        .joinTitle {
+            margin: 0 auto;
+            text-align: center;
+            width: 700px;
+        }
+        .joinContents {
+            margin: 0 auto;
+            width: 700px;
+            text-align: center;
+            margin-bottom: 100px;
+        }
+        .joinContents td {
+            text-align: left;
+        }
+        .joinCol1 {
+            width: 150px;
+            height: 70px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .joinCol2 {
+            width: 400px;
+        }
+        .joinInput {
+            width: 350px;
+            height: 40px;
+            padding-left: 10px;
+            font-size: 15px;
+            border: 1px solid lightgray;
+        }
+        .checkBtn {
+            width: 120px;
+            height: 50px;
+            background: white;
+            border: 1px solid #009223;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #009223;
+            cursor: pointer;
+        }
+        .joinBtn {
+            width: 200px;
+            height: 50px;
+            background:  #009223;
+            border: 1px solid #009223;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+        }
+        .joinSelect {
+            width: 120px;
+            height: 30px;
+            font-size: 14px;
+            border: 1px solid lightgray;
+        }
+        .checkAll {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .checkOne {
+            padding-left: 30px;
+        }
+
+        /* footer */
+        #footerTable {
+            margin: 0 auto;
+            text-align: center;
+        }
+        .footerMenu {
+            font-size: 10px;
+            color: gray;
+            line-height: 15px;
+            padding: 20px 0px 30px;
+            width: 1920px;
+            background-color: rgb(247, 247, 247);
+        }
+
+        /* 공통 */
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover {
+            color: #009223;
+        }
+        table, tr, td {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+    <!--
+https://postcode.map.daum.net/guide
+
+    -->
+
+    <table id="top-header">
+        <tr>
+            <td style="text-align: right;height: 100px;">
+                <a href="../index.html">
+                    <img src="images/home.png" style="width: 60px;">
+                </a>
+            </td>
+        </tr>
+    </table>
+
+    <!-- contents -->
+    <table class="joinTitle">
+        <tr>
+            <td>
+                <br>
+                <h2>회원가입</h2>
+                <br><br><br>
+                <hr>
+            </td>
+        </tr>
+    </table>
+    <table class="joinContents">
+        <tr>
+            <td class="joinCol1">아이디</td>
+            <td class="joinCol2"><input class="joinInput id" type="text" placeholder="아이디를 입력해주세요" oninput="checkId(this)"></td>
+            <!-- <td class="joinCol3"><button class="checkBtn">중복확인</button></td> -->
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checkMsg id"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">비밀번호</td>
+            <td class="joinCol2"><input class="joinInput pw" type="text" placeholder="비밀번호를 입력해주세요" oninput="checkPw(this)"></td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checkMsg pw"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">비밀번호확인</td>
+            <td class="joinCol2"><input class="joinInput" type="text" placeholder="비밀번호를 한번 더 입력해주세요" oninput="checkDoublePw(this)"></td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checkMsg doublePw"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">이름</td>
+            <td class="joinCol2"><input class="joinInput" type="text" placeholder="이름을 입력해주세요" oninput="checkName(this)"></td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checkMsg name"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">이메일</td>
+            <td class="joinCol2"><input class="joinInput" type="text" placeholder="이메일을 입력해주세요" oninput="checkEmail(this)"></td>
+            <!-- <td class="joinCol3"><button class="checkBtn">중복확인</button></td> -->
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checkMsg email"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">휴대폰</td>
+            <td class="joinCol2"><input class="joinInput" type="text" placeholder="숫자만 입력해주세요" oninput="checkPhone(this)"></td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td class="checkMsg phone"></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">우편번호</td>
+            <td class="joinCol2"><input class="joinInput zipcode" type="text" placeholder="우편번호를 입력해주세요"></td>
+            <td class="joinCol3"><button class="checkBtn" onclick="execDaumPostcode()">우편번호검색</button></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">도로명 주소</td>
+            <td class="joinCol2"><input class="joinInput address1" type="text" placeholder="도로명 주소를 입력해주세요"></td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">상세 주소</td>
+            <td class="joinCol2"><input class="joinInput address2" type="text" placeholder="상세 주소를 입력해주세요"></td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">성별</td>
+            <td class="joinCol2">
+                <label><input type="radio" name="gender" value="male">남자</label>
+                <label><input type="radio" name="gender" value="female">여자</label>
+                <label><input type="radio" name="gender" value="none" checked>선택안함</label>
+            </td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">유입 경로</td>
+            <td class="joinCol2">
+                <select class="joinSelect">
+                    <option>인터넷 검색</option>
+                    <option>지인 권유</option>
+                    <option>SNS</option>
+                    <option>광고</option>
+                    <option selected>기타</option>
+                </select>
+            </td>
+            <td class="joinCol3"></td>
+        </tr>
+        <tr>
+            <td colspan="3"><hr></td>
+        </tr>
+        <tr>
+            <td class="joinCol1">이용약관동의</td>
+            <td class="joinCol2" colspan="2">
+                <span class="checkAll"><input class="all" type="checkbox" onclick="checkAll(this)">&nbsp;전체 동의</span>
+            </td>
+        </tr>
+        <tr>
+            <td class="joinCol1"></td>
+            <td class="joinCol2" colspan="2">
+                <span class="checkOne"><input class="ch" type="checkbox">&nbsp;이용약관 동의<br><br></span>
+                <span class="checkOne"><input class="ch" type="checkbox">&nbsp;개인정보취급 동의<br><br></span>
+                <span class="checkOne"><input class="ch" type="checkbox">&nbsp;만 14세 이상입니다.<br><br></span>
+                <span class="checkOne"><input class="ch" type="checkbox">&nbsp;마케팅 메일 수신 동의 (선택)<br><br></span>
+                
+            </td>
+        </tr>
+        <tr>
+            <td class="joinCol1"></td>
+            <td class="joinCol2" colspan="2">
+                <button class="joinBtn">가입하기</button>
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        
+        // 아이디 유효성 검사
+        function checkId(obj) {
+            let value = obj.value;
+            let msg = document.querySelector(".checkMsg.id");
+
+            let result = RegExp(/^[A-Za-z0-9_\-]{6,16}$/);
+            if(result.test(value)) {
+                msg.innerHTML = "";
+            } else {
+                msg.innerHTML = "<span style='color:#F03F40; font-size:12px;'>6자 이상 16자 이하의 영문 혹은 영문과 숫자를 조합</span>";
+            }
+        }
+
+        // 비밀번호 유효성 검사
+        function checkPw(obj) {
+            let value = obj.value;
+
+            let msg = document.querySelector(".checkMsg.pw");
+
+            let result = RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^*()\-_=+\\\|\[\]{};:\'",.<>\/?]).{8,16}$/);
+            if(result.test(value)) {
+                msg.innerHTML = "";
+            } else {
+                msg.innerHTML = "<span style='color:#F03F40; font-size:12px;'>영문 대문자와 소문자, 숫자, 특수문자를 하나 이상 포함하여 8~16자 조합</span>";
+            }
+        }
+
+        // 비밀번호 확인 유효성 검사
+        function checkDoublePw(obj) {
+            let pw = obj.value;
+            let doublePw = document.querySelector(".joinInput.pw").value;
+
+            let msg = document.querySelector(".checkMsg.doublePw");
+            if(pw == doublePw) {
+                msg.innerHTML = "";
+            } else {
+                msg.innerHTML = "<span style='color:#F03F40; font-size:12px;'>동일한 비밀번호 입력</span>";
+            }
+        }
+
+        // 이름 유효성 검사
+        function checkName(obj) {
+            let value = obj.value;
+            let msg = document.querySelector(".checkMsg.name");
+
+            let result = RegExp(/^[가-힣]{2,6}$/);
+            if(result.test(value)) {
+                msg.innerHTML = "";
+            } else {
+                msg.innerHTML = "<span style='color:#F03F40; font-size:12px;'>2~6글자의 한글만 입력</span>";
+            }
+        }
+
+        // 이메일 유효성 검사
+        function checkEmail(obj) {
+            let value = obj.value;
+            let msg = document.querySelector(".checkMsg.email");
+
+            let result = RegExp(/^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/);
+            if(result.test(value)) {
+                msg.innerHTML = "";
+            } else {
+                msg.innerHTML = "<span style='color:#F03F40; font-size:12px;'>이메일 형식으로 입력해 주세요.</span>";
+            }
+        }
+
+        // 휴대폰 유효성 검사
+        function checkPhone(obj) {
+            let value = obj.value;
+            let msg = document.querySelector(".checkMsg.phone");
+
+            let result = RegExp(/^01([0|1|6|7|8|9])([0-9]{3,4})([0-9]{4})$/);
+            if(result.test(value)) {
+                msg.innerHTML = "";
+            } else {
+                msg.innerHTML = "<span style='color:#F03F40; font-size:12px;'>휴대폰 형식으로 입력해 주세요.</span>";
+            }
+        }
+
+        // 우편번호 검색 기능
+        function execDaumPostcode() {
+            new daum.Postcode( {
+                oncomplete: function( data ) {
+
+                    document.querySelector(".joinInput.zipcode").value = data.zonecode;
+                    document.querySelector(".joinInput.address1").value = data.address;
+
+                    document.querySelector(".joinInput.address2").focus();
+                }
+            } ).open();
+        }
+
+        // 전체동의 기능
+        let chList = document.querySelectorAll(".ch");
+        for(let i=0; i<chList.length; i++) {
+            chList[i].addEventListener("click", checkedAll);
+        }
+        function checkAll(obj) {
+            if(obj.checked) {
+                for(let i=0; i<chList.length; i++) {
+                    chList[i].checked = true;
+                }
+            } else {
+                for(let i=0; i<chList.length; i++) {
+                    chList[i].checked = false;
+                }
+            }
+        }
+
+        // 전체선택 기능
+        function checkedAll() {
+            for(let i=0; i<chList.length; i++) {
+                let count = 0;
+                for(let i=0; i<chList.length; i++) {
+                    if(chList[i].checked) {
+                        count += 1;
+                    }
+                }
+                if(count == chList.length) {
+                    document.querySelector(".all").checked = true;
+                } else {
+                    document.querySelector(".all").checked = false;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>
