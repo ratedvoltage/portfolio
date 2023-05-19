@@ -131,7 +131,8 @@ export class PageIndex {
                                                 <tr>
                                                     <td class="content-contentcontent"></td>
                                                     <td class="content-space"></td>
-                                                    
+                                                    <td class="content-contentcontent"></td>
+                                                    <td class="content-space"></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -184,16 +185,19 @@ export class PageIndex {
             this.$c_ccList[i].addEventListener("mouseenter", this.slideIn);
             this.$c_ccList[i].addEventListener("mouseleave", this.slideOut);
         }
-        this.contentList = ["달력", "식권 자판기", "틱택토", "순발력 게임","스네이크 게임",
-        "테트리스 게임","","",]
-        this.contentSubList = ["Calendar", "Vending Machine", "Tic-Tac-Toe", "Speed Game",
-        "Snake Game","TETRIS Game","","","","",]
+        this.contentList = ["다이어리", "식권 자판기", 
+        "틱택토", "순발력 게임","홈페이지",
+        "스네이크 게임","테트리스 게임","",]
+        this.contentSubList = ["Diary", "Vending Machine", 
+        "Tic-Tac-Toe", "Speed Game","Homepage",
+        "Snake Game","TETRIS Game","","","",]
         this.contentImgList = ["./images/mycalendar.png", "images/kiosk.png", 
-        "images/tictactoe.png","images/speedgame.png","images/snake.png","images/tetris.png"
-        ,"","","",""]
+        "images/tictactoe.png","images/speedgame.png","images/itbook.png",
+        "images/snake.png","images/tetris.png"
+        ,"","",""]
             // "images/tetris.png","images/tetris.png","images/tetris.png","images/tetris.png"]
-        this.contentHref = ["calendar.html", "vending.html", "tictactoe/index.html",
-        "speedgame/index.html", "", "#","#","#","","","","",]
+        this.contentHref = ["./diary/index.html", "vending.html", "tictactoe/index.html",
+        "speedgame/index.html", "http://pyapyapya.cafe24app.com/", "#","#","#","","","","",]
 
         this.getContent(this.contentImgList, this.contentList, this.contentSubList, this.contentHref);
         this.$c_hTBP = document.querySelector("#content-headerTeamBtnPage");

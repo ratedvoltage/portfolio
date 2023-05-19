@@ -3,7 +3,7 @@ let com = "";
 let list = [];
 let turn = true;
 let game = 0;
-let color = "#009223";
+let color = "#C32032";
 
 function selectPlayer(player) {
     me = player;
@@ -22,7 +22,7 @@ function selectPlayer(player) {
 function drawHeader() {
     let $headerTable = document.createElement("table");
     $headerTable.id = "headerTable";
-
+        //해더
     let $tr = document.createElement("tr");
 
     let $td = document.createElement("td");
@@ -36,7 +36,7 @@ function drawHeader() {
 function drawTurnTable() {
     let $turnTable = document.createElement("table");
     $turnTable.id = "turnTable";
-
+        // 턴을 나타내는 판을 생성 
     let $tr = document.createElement("tr");
 
     let $td = document.createElement("td");
@@ -61,8 +61,9 @@ function drawTurnTable() {
 function drawContentTable() {
     let $contentTable = document.createElement("table");
     $contentTable.id = "contentTable";
-
-    for(let i=0; i<3; i++) {
+        
+        //포문을 사용해  게임판 생성
+    for(let i=0; i<3; i++) {        
         let $tr = document.createElement("tr");
 
         let $td = document.createElement("td");
@@ -106,13 +107,13 @@ function init() {
     drawContentTable();
 
     for(let i=0; i<5; i++) {
-        let temp = [0, 3, 0, 3, 0];
+        let temp = [0, 3, 0, 3, 0];     //테이블 구성상  빈칸을 0으로  구분선을 3으로  짓고  플레이어 =1  com =2 로 지정 하도록 5줄만듦
         list.push(temp);
     }
 
     if(me == "O") {
-        document.querySelectorAll(".playerBtn")[0].style.backgroundColor = color;
-        com = "X";
+        document.querySelectorAll(".playerBtn")[0].style.backgroundColor = color;   //O's turn적어놓은것을 색을 바꿔 가시적으로 O를 골랏음을 나타냄
+        com = "X";      //플레이어가 O이므로 컴퓨터가 X
     } else {
         document.querySelectorAll(".playerBtn")[1].style.backgroundColor = color;
         com = "O";
@@ -121,7 +122,7 @@ function init() {
     let blockList = document.querySelectorAll(".block");
     for(let i=0; i<blockList.length; i++) {
         blockList[i].addEventListener("click", mark);
-    }
+    }                                       // 모든 블록을 찾아서 클릭하면 반응하게 설정.   mark 함수 실행
 }
 
 function mark(e) {

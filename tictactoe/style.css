@@ -16,7 +16,7 @@
     color: white;
     font-size: 25px;
     font-weight: bold;
-    background-color: #009223;
+    background-color: #C32032;
     border-style: none;
     border-radius: 5px;
     cursor: pointer;
@@ -55,7 +55,7 @@
     line-height: 80px;
     font-size: 40px;
     font-weight: bold;
-    color: #009223;
+    color: #C32032;
 
     width: 500px;
     height: 100px;
@@ -113,7 +113,7 @@
     height: 70px;
     font-size: 25px;
     font-weight: bold;
-    background-color: #009223;
+    background-color: #C32032;
     color: white;
     border-style: none;
     border-radius: 5px;
