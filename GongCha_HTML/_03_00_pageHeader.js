@@ -24,7 +24,7 @@ export class PageHeader{
             width: 1080px;
             height: 1920px;
             margin: 0 auto;
-            position: relative;
+            position: static;
 
             font-family: 'OTWelcomeRA';
             background-color: #C32033;

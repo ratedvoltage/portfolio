@@ -15,7 +15,7 @@ export class PageFooter {
         ${new GetFont().execute()}
 
         #footer {
-            display: flex;
+            display: block;
             flex-direction: column;
     
             flex:1;
@@ -26,21 +26,29 @@ export class PageFooter {
         #page {
 
             
-           width: 78%;
+           width: 880px;
+           float: left;
+
            height: 100px;
            margin: 0 auto;
            text-align: center;
-           position: absolute;
+           position: sticky;
            bottom: 0;
            left: 0;
           }
-       #page a {
+       #page a,page button {
            color: white;
        }
+       #page button {
+        color: white;
+    }
    
-        #page a:hover {
-           color: black;
-        }
+        #page a:hover{
+            color: black;
+         }
+        #page button:hover {
+            color: black;
+         }
           #pageSpace1 {
            width: 100px;
            text-align: right;
@@ -69,6 +77,14 @@ export class PageFooter {
           #curcle {
            width: 30px;
           }
+          button {
+            cursor: pointer;
+        }
+          
+        .PRE_NEXT_Button {width: 160px;height: 80px;background-color:
+            #C32033;border-radius: 5px;border: 0px solid #999;}
+        .PRE_NEXT_Txt {font-size: 25px;font-weight: bold;color:white;}
+        .PRE_NEXT_Txt:hover {color:black;}
 
         </style>
         `;
@@ -78,7 +94,11 @@ export class PageFooter {
                 <table id="page">
                     <tr>
                         <td>
-                            <span id="pre" class="prenext"><a href="#">이전</a></span>
+                            <!--<span id="pre" class="prenext"><a href="#">이전</a></span>-->
+                            
+                            <button class="PRE_NEXT_Button">
+                                <div class="PRE_NEXT_Txt">이전</div>
+                            </button>
                         </td>
                         <td id="pageSpace1">
                             <svg id="curcle" width="50" height="50">
@@ -91,7 +111,10 @@ export class PageFooter {
                             </svg>
                         </td>
                         <td>
-                            <span id="next" class="prenext"><a href="#">다음</a></span>
+                            <!--<span id="next" class="prenext"><a href="#">다음</a></span>-->
+                            <button class="PRE_NEXT_Button">
+                                <div class="PRE_NEXT_Txt">다음</div>
+                            </button>
                         </td>
                     </tr>
                 </table>

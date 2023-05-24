@@ -8,7 +8,9 @@ export class GetSetting{
             border-collapse:collapse;
             border: 1px solid aqua;
         }
-
+        a{
+            text-decoration-line: none;
+        }
         `;
         return tag;
     }

@@ -26,7 +26,7 @@
         #timerTd {
             font-size: 35px;
             font-weight: bold;
-            color: #009223;
+            color: #C32033;
         }
         #gameNumTd {
             width: 50px;
@@ -58,7 +58,7 @@
         #mainText {
             font-size: 30px;
             font-weight: bold;
-            color: #009223;
+            color: #C32033;
         }
         #subText {
             font-size: 15px;
@@ -83,7 +83,7 @@
             height: 80px;
             border-collapse: collapse;
             border: 2px solid white;
-            background-color: #009223;
+            background-color: #C32033;
             cursor: pointer;
 
             font-size: 40px;
@@ -177,10 +177,11 @@
         let timer = 0;
         
         function setTime() {
+            //setInterval(setTime, 10)  10ms 마다 갱신
             second += 1;
 
             let share = parseInt(second / 100);
-            let modNum = second % 100;
+            let modNum = second % 100;  //1000 ~ 10ms 를 100분위 
             if(modNum < 10) {
                 modNum = "0" + modNum;
             }

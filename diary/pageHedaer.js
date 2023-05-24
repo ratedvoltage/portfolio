@@ -17,16 +17,16 @@ export class PageHeader {
             #header-table {
                 margin: 0 auto;
                 width: 1000px;
-                border-bottom: 1px solid #333333;
+                border-bottom: 1px solid #C32033;
             }
             #time {
                 font-size: 50px;
-                color: #333333;
+                color: #C32033;
                 height: 100px;
                 vertical-align: bottom;
             }
             #today {
-                color: blue;
+                color: #800003;
                 height: 50px;
                 vertical-align: top;
             }      

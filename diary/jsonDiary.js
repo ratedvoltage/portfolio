@@ -14,13 +14,13 @@ export class JsonDiary {
                 "diaryNo"   : 1001,
                 "title"     : "제목1",
                 "content"   : "내용1",
-                "regDate"   : "2023-01-19"      
+                "regDate"   : "2023-05-01"      
             },
             {
                 "diaryNo"   : 1002,
                 "title"     : "제목2",
                 "content"   : "내용2",
-                "regDate"   : "2023-02-19"
+                "regDate"   : "2023-04-19"
             },
             {
                 "diaryNo"   : 1003,
@@ -32,25 +32,25 @@ export class JsonDiary {
                 "diaryNo"   : 1004,
                 "title"     : "제목4",
                 "content"   : "내용4",
-                "regDate"   : "2023-03-19"
+                "regDate"   : "2023-05-09"
             },
             {
                 "diaryNo"   : 1005,
                 "title"     : "제목5",
                 "content"   : "내용5",
-                "regDate"   : "2023-04-19"
+                "regDate"   : "2023-05-01"
             },
             {
                 "diaryNo"   : 1006,
                 "title"     : "제목6",
                 "content"   : "내용6",
-                "regDate"   : "2023-03-19"
+                "regDate"   : "2023-05-29"
             },
             {
                 "diaryNo"   : 1007,
                 "title"     : "제목777777777777",
                 "content"   : "내용7",
-                "regDate"   : "2023-03-19"
+                "regDate"   : "2023-06-29"
             },
         ];
 

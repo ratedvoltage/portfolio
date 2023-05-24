@@ -167,6 +167,35 @@ export class PageIndex {
                                         </td>
                                     </tr>
                                 </table>
+                                <table class="content-content">
+                                    <tr>
+                                        <td class="content-cTitle">
+                                            <span class="content-contentTitle" id="content-contentTitle1">Team</span>
+                                            <span class="content-contentTitle" id="content-contentTitle2">게임 프로젝트</span>
+                                            <span class="content-contentTitle" id="content-contentTitle3">PROJECT</span>
+                                            <div class="content-contentSubTitle">과거에 개발자로 참여했던 프로젝트들입니다.</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td class="content-contentTD2">
+                                            <table calss="content-contentcontentTable">
+                                                <tr>
+                                                    <td class="content-contentcontent"></td>
+                                                    <td class="content-space"></td>
+                                                    <td class="content-contentcontent"></td>
+                                                    <td class="content-space"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-space"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="content-space"></td>
+                                                    <td class="content-space"></td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
                             </td>
                         </tr>
                     </table>
@@ -187,19 +216,83 @@ export class PageIndex {
         }
         this.contentList = ["다이어리", "식권 자판기", 
         "틱택토", "순발력 게임","홈페이지",
-        "스네이크 게임","테트리스 게임","",]
+        "스네이크 게임","테트리스 게임",
+        "므네모시네","펠레이데스"]
         this.contentSubList = ["Diary", "Vending Machine", 
         "Tic-Tac-Toe", "Speed Game","Homepage",
-        "Snake Game","TETRIS Game","","","",]
+        "Snake Game","TETRIS Game",
+        "Mnemosyne","Peleides",
+        "",]
         this.contentImgList = ["./images/mycalendar.png", "images/kiosk.png", 
         "images/tictactoe.png","images/speedgame.png","images/itbook.png",
-        "images/snake.png","images/tetris.png"
-        ,"","",""]
+        "images/snake.png","images/tetris.png",
+        "images/Mnemosyne.png","images/Peleides.png",
+        ""]
             // "images/tetris.png","images/tetris.png","images/tetris.png","images/tetris.png"]
         this.contentHref = ["./diary/index.html", "vending.html", "tictactoe/index.html",
-        "speedgame/index.html", "http://pyapyapya.cafe24app.com/", "#","#","#","","","","",]
+        "speedgame/index.html", "http://pyapyapya.cafe24app.com/", 
+        "snake.html","tetris05.html",
+        "https://www.youtube.com/watch?v=zoMWWb-Mess",        
+        "https://www.youtube.com/watch?v=tE_tK3JJZjs",
+        "","","",]
+        this.contentHtml = [
+                    //다이어리
+                `
+                    달력에 매모를 할 수 있는 다이어리 입니다. <br><br>
+                    날짜 마다 따로 매모가 가능합니다.<br>
+                    <br>
+                `,  //식권 자판기
+                `
+                    식권을 뽑거나 관리하는 프로그램입니다.<br><br>
+                    관리자가 넣어놓은 수량이상은 못뽑고<br>
+                    사용자가 넣은 금액에서 식권값을 뺀 만큼 <br>
+                    거스름돈으로 나옵니다.<br>
+                `,  //틱택토
+                `
+                    틱택토 게임입니다. <br><br>
+                    단순히 O와 X를 번갈아 놓으며,<br>
+                    먼저 3개의O나 X가 나란히 된 <br>
+                    쪽이 승리입니다.<br>
+                `,  //순발력 게임
+                `
+                    스피드게임 입니다.<br><br>
+                    5x5의 칸에 총 50개의 칸이있으며,<br>
+                    번호의 순서대로 누르는걸 <br>
+                    빨리하는 게임입니다.<br>
+                `,  //홈페이지
+                `
+                    홈페이지 입니다. <br><br>
+                    회원가입, 로그인, 장바구니 기능이 <br>
+                    DB와 연동되어있습니다. <br>
+                `,  //스네이크
+                `
+                    프로젝트에 대한 설명을 기술하시오. <br><br>
+                    프로젝트에 대한 설명을 기술하시오. <br>
+                    프로젝트에 대한 설명을 기술하시오. <br>
+                `,  //테트리스
+                `
+                    프로젝트에 대한 설명을 기술하시오. <br><br>
+                    프로젝트에 대한 설명을 기술하시오. <br>
+                    프로젝트에 대한 설명을 기술하시오. <br>
+                `,  //아직모름
+                `
+                2D 사이드뷰 스토리형 로그라이크 RPG <br><br>
+                    기획, 개발, 디자인 3명구성으로<br>
+                    유니티를 사용해서 만들었습니다.<br>
+                `,  //과거 프로젝트 므네모시네
+                `
+                2.5D 쿼터뷰 스토리형 탄막 슈팅 게임 <br><br>
+                     택스트창, 그림, 캐릭터모델링, 외에는..<br>
+                    유니티를 사용해서 만들었습니다. <br>
+                `,  //과거 프로젝트 플레아데스
+                `
+                    프로젝트에 대한 설명을 기술하시오. <br><br>
+                    프로젝트에 대한 설명을 기술하시오. <br>
+                    프로젝트에 대한 설명을 기술하시오. <br>
+                `
+        ]
 
-        this.getContent(this.contentImgList, this.contentList, this.contentSubList, this.contentHref);
+        this.getContent(this.contentImgList, this.contentList, this.contentSubList, this.contentHref , this.contentHtml);
         this.$c_hTBP = document.querySelector("#content-headerTeamBtnPage");
         // this.$c_hTBP.addEventListener("click",href="Gongcha/1.home.html");
     }
@@ -210,7 +303,7 @@ export class PageIndex {
     // contentSelect = (on) => {
     //     this.getContent(this.contentImgList, this.contentList, this.contentSubList, this.contentHref,on);
     // }
-    getContent = (img, title, subTitle, href) => {
+    getContent = (img, title, subTitle, href, inhtml) => {
 
 
         for (let i = 0; i < this.$c_ccList.length; i++) {
@@ -281,9 +374,7 @@ export class PageIndex {
             $span.classList = "desc"
             $span.innerHTML =
                 `
-                    프로젝트에 대한 설명을 기술하시오. <br>
-                    프로젝트에 대한 설명을 기술하시오. <br>
-                    프로젝트에 대한 설명을 기술하시오. <br>
+                    ${inhtml[i]}<br>
                 `
             $td.append($span);
             //------------------------------------------------------------------

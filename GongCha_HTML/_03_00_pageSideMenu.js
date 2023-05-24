@@ -15,7 +15,7 @@ export class PageSideMenu{
 
         /*===============================================================================*/
           #contentTable{text-align: center; float : left;display: flex;}
-          #Setposition {text-align: center; float : left;display: flex;}
+          #Setposition {text-align: center; float : left;display: flex;position: sticky;}
           #SetpopUpSlideMenu {}
           #outline {width: 170px;background-color: #C32033;
               /* 아래 회색부 합치기위한 마진 안남기기 */

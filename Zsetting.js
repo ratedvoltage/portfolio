@@ -9,6 +9,8 @@ export class GetSetting{
             border: 1px solid aqua;*/
         }
 
+
+
         `;
         return tag;
     }
